@@ -27,9 +27,7 @@
 		3AC3EFB02683EE8200CE1CEB /* GraphCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFAD2683EE8200CE1CEB /* GraphCell.swift */; };
 		3AC3EFB12683EE8200CE1CEB /* InsightTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFAE2683EE8200CE1CEB /* InsightTableViewCell.swift */; };
 		3AC3EFB82683EE9C00CE1CEB /* ContentSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFB22683EE9B00CE1CEB /* ContentSizedTableView.swift */; };
-		3AC3EFB92683EE9C00CE1CEB /* SAMMealSettingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFB32683EE9B00CE1CEB /* SAMMealSettingsCell.m */; };
 		3AC3EFBA2683EE9C00CE1CEB /* AddFoodTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */; };
-		3AC3EFBB2683EE9C00CE1CEB /* SAMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFB72683EE9C00CE1CEB /* SAMSettingsViewController.m */; };
 		3AC3EFC72683EEA900CE1CEB /* SAMTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFBC2683EEA900CE1CEB /* SAMTrackCell.m */; };
 		3AC3EFC82683EEA900CE1CEB /* SAMMealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFBE2683EEA900CE1CEB /* SAMMealCell.m */; };
 		3AC3EFC92683EEA900CE1CEB /* SAMTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFC02683EEA900CE1CEB /* SAMTrackViewController.m */; };
@@ -86,11 +84,7 @@
 		3AC3EFAD2683EE8200CE1CEB /* GraphCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCell.swift; sourceTree = "<group>"; };
 		3AC3EFAE2683EE8200CE1CEB /* InsightTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightTableViewCell.swift; sourceTree = "<group>"; };
 		3AC3EFB22683EE9B00CE1CEB /* ContentSizedTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentSizedTableView.swift; sourceTree = "<group>"; };
-		3AC3EFB32683EE9B00CE1CEB /* SAMMealSettingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMMealSettingsCell.m; sourceTree = "<group>"; };
-		3AC3EFB42683EE9B00CE1CEB /* SAMMealSettingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMMealSettingsCell.h; sourceTree = "<group>"; };
 		3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodTypeVC.swift; sourceTree = "<group>"; };
-		3AC3EFB62683EE9C00CE1CEB /* SAMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMSettingsViewController.h; sourceTree = "<group>"; };
-		3AC3EFB72683EE9C00CE1CEB /* SAMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMSettingsViewController.m; sourceTree = "<group>"; };
 		3AC3EFBC2683EEA900CE1CEB /* SAMTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMTrackCell.m; sourceTree = "<group>"; };
 		3AC3EFBD2683EEA900CE1CEB /* SAMMealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMMealCell.h; sourceTree = "<group>"; };
 		3AC3EFBE2683EEA900CE1CEB /* SAMMealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMMealCell.m; sourceTree = "<group>"; };
@@ -222,10 +216,6 @@
 				3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */,
 				3AC3EFB22683EE9B00CE1CEB /* ContentSizedTableView.swift */,
 				3AB081052684DF6D008D030C /* MealSettingsCell.swift */,
-				3AC3EFB42683EE9B00CE1CEB /* SAMMealSettingsCell.h */,
-				3AC3EFB32683EE9B00CE1CEB /* SAMMealSettingsCell.m */,
-				3AC3EFB62683EE9C00CE1CEB /* SAMSettingsViewController.h */,
-				3AC3EFB72683EE9C00CE1CEB /* SAMSettingsViewController.m */,
 				3AB081072684EE95008D030C /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -429,10 +419,8 @@
 				3AC3EFCC2683EEA900CE1CEB /* SAMPoopCell.m in Sources */,
 				3AC3EF602683EBF200CE1CEB /* AppDelegate.swift in Sources */,
 				3AC3EFC92683EEA900CE1CEB /* SAMTrackViewController.m in Sources */,
-				3AC3EFB92683EE9C00CE1CEB /* SAMMealSettingsCell.m in Sources */,
 				3AC3EFB12683EE8200CE1CEB /* InsightTableViewCell.swift in Sources */,
 				3AC3EF6A2683EBF200CE1CEB /* HappyPoops.xcdatamodeld in Sources */,
-				3AC3EFBB2683EE9C00CE1CEB /* SAMSettingsViewController.m in Sources */,
 				3AB0810C2685156E008D030C /* TrackCell.swift in Sources */,
 				3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */,
 				3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */,
