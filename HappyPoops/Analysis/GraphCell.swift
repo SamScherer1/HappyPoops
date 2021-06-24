@@ -98,9 +98,7 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-        //TODO fix!
-        //return self.appDelegate?.fetchFoodTypes()?.count ?? 1
+        return self.appDelegate?.fetchFoodTypes().count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
