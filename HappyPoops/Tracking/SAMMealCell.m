@@ -13,8 +13,6 @@
 @interface SAMMealCell()
 
 @property (strong, nonatomic) UIStackView *circlesStackView;
-@property (strong, nonatomic) NSArray *circlesArray;
-
 
 @end
 
@@ -66,13 +64,13 @@
     NSArray *foodTypes = [appDelegate fetchFoodTypes];
     for (FoodType *foodType in foodTypes) {
         FoodTypeCircle *circle = [FoodTypeCircle new];
-        circle.letterTitle = [foodType.name substringToIndex:1];
-        NSNumber *hasEatenFoodTypeNumber = [self.mealDictionary valueForKey:foodType.name];
-        if (hasEatenFoodTypeNumber.boolValue) {
-            circle.color = [NSKeyedUnarchiver unarchivedObjectOfClass:UIColor.class fromData:foodType.color error:nil];
-        } else {
-            circle.color = UIColor.grayColor;
-        }
+//        circle.letterTitle = [foodType.name substringToIndex:1];
+//        NSNumber *hasEatenFoodTypeNumber = [self.mealDictionary valueForKey:foodType.name];
+//        if (hasEatenFoodTypeNumber.boolValue) {
+//            circle.color = [NSKeyedUnarchiver unarchivedObjectOfClass:UIColor.class fromData:foodType.color error:nil];
+//        } else {
+//            circle.color = UIColor.grayColor;
+//        }
         [self.circlesStackView addArrangedSubview:circle];
     }
 }

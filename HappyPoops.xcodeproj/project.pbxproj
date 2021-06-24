@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081052684DF6D008D030C /* MealSettingsCell.swift */; };
+		3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081072684EE95008D030C /* SettingsViewController.swift */; };
+		3AB0810A26851472008D030C /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810926851472008D030C /* MealCell.swift */; };
+		3AB0810C2685156E008D030C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810B2685156E008D030C /* TrackCell.swift */; };
 		3AC3EF602683EBF200CE1CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF5F2683EBF200CE1CEB /* AppDelegate.swift */; };
 		3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF612683EBF200CE1CEB /* SceneDelegate.swift */; };
 		3AC3EF6A2683EBF200CE1CEB /* HappyPoops.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF682683EBF200CE1CEB /* HappyPoops.xcdatamodeld */; };
@@ -53,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AB081052684DF6D008D030C /* MealSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSettingsCell.swift; sourceTree = "<group>"; };
+		3AB081072684EE95008D030C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3AB0810926851472008D030C /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		3AB0810B2685156E008D030C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		3AC3EF5C2683EBF200CE1CEB /* HappyPoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyPoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC3EF5F2683EBF200CE1CEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AC3EF612683EBF200CE1CEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,10 +174,11 @@
 				3AC3EF6D2683EBF200CE1CEB /* LaunchScreen.storyboard */,
 				3AC3EF6B2683EBF200CE1CEB /* Assets.xcassets */,
 				3AC3EF922683EC7200CE1CEB /* HappyPoops-Bridging-Header.h */,
+				3AC3EFA62683EE5F00CE1CEB /* Tracking */,
 				3AC3EFA42683EE2A00CE1CEB /* Analysis */,
 				3AC3EFA52683EE5A00CE1CEB /* Settings */,
-				3AC3EFA62683EE5F00CE1CEB /* Tracking */,
 				3AC3EF972683EC7300CE1CEB /* Enums.swift */,
+				3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */,
 				3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */,
 				3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */,
 				3AC3EF982683EC7300CE1CEB /* UIColor+SAMColors.h */,
@@ -212,10 +221,12 @@
 			children = (
 				3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */,
 				3AC3EFB22683EE9B00CE1CEB /* ContentSizedTableView.swift */,
+				3AB081052684DF6D008D030C /* MealSettingsCell.swift */,
 				3AC3EFB42683EE9B00CE1CEB /* SAMMealSettingsCell.h */,
 				3AC3EFB32683EE9B00CE1CEB /* SAMMealSettingsCell.m */,
 				3AC3EFB62683EE9C00CE1CEB /* SAMSettingsViewController.h */,
 				3AC3EFB72683EE9C00CE1CEB /* SAMSettingsViewController.m */,
+				3AB081072684EE95008D030C /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -223,15 +234,16 @@
 		3AC3EFA62683EE5F00CE1CEB /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
-				3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */,
 				3AC3EFC32683EEA900CE1CEB /* SAMAddEventViewController.h */,
 				3AC3EFC22683EEA900CE1CEB /* SAMAddEventViewController.m */,
 				3AC3EFBD2683EEA900CE1CEB /* SAMMealCell.h */,
 				3AC3EFBE2683EEA900CE1CEB /* SAMMealCell.m */,
+				3AB0810926851472008D030C /* MealCell.swift */,
 				3AC3EFBF2683EEA900CE1CEB /* SAMPoopCell.h */,
 				3AC3EFC62683EEA900CE1CEB /* SAMPoopCell.m */,
 				3AC3EFC52683EEA900CE1CEB /* SAMTrackCell.h */,
 				3AC3EFBC2683EEA900CE1CEB /* SAMTrackCell.m */,
+				3AB0810B2685156E008D030C /* TrackCell.swift */,
 				3AC3EFC12683EEA900CE1CEB /* SAMTrackViewController.h */,
 				3AC3EFC02683EEA900CE1CEB /* SAMTrackViewController.m */,
 			);
@@ -411,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB0810A26851472008D030C /* MealCell.swift in Sources */,
 				3AC3EFB02683EE8200CE1CEB /* GraphCell.swift in Sources */,
 				3AC3EF9D2683EC7300CE1CEB /* UIColor+SAMColors.m in Sources */,
 				3AC3EFCC2683EEA900CE1CEB /* SAMPoopCell.m in Sources */,
@@ -420,11 +433,14 @@
 				3AC3EFB12683EE8200CE1CEB /* InsightTableViewCell.swift in Sources */,
 				3AC3EF6A2683EBF200CE1CEB /* HappyPoops.xcdatamodeld in Sources */,
 				3AC3EFBB2683EE9C00CE1CEB /* SAMSettingsViewController.m in Sources */,
+				3AB0810C2685156E008D030C /* TrackCell.swift in Sources */,
+				3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */,
 				3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */,
 				3AC3EFB82683EE9C00CE1CEB /* ContentSizedTableView.swift in Sources */,
 				3AC3EFAA2683EE7800CE1CEB /* Chart.swift in Sources */,
 				3AC3EFBA2683EE9C00CE1CEB /* AddFoodTypeVC.swift in Sources */,
 				3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */,
+				3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */,
 				3AC3EFAF2683EE8200CE1CEB /* AnalyzeViewController.swift in Sources */,
 				3AC3EFCA2683EEA900CE1CEB /* SAMAddEventViewController.m in Sources */,
 				3AC3EFCB2683EEA900CE1CEB /* FoodTypeCircle.swift in Sources */,

@@ -12,7 +12,7 @@ import UIKit
 @objc class AddFoodTypeVC : UIViewController {
     var nameTextView : UITextView
     var colorWell : UIColorWell
-    @objc public var settingsVC : SAMSettingsViewController?
+    var settingsVC : SettingsViewController?//TODO: Shouldn't hold strong reference... use a delegate?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -94,7 +94,7 @@ import UIKit
     
     @objc func addFoodType() {
         if let settingsVC = self.settingsVC {
-            settingsVC.addFoodType(withName: self.nameTextView.text, andColor: self.colorWell.selectedColor ?? UIColor.black)
+            settingsVC.addFoodType(with: self.nameTextView.text, color: self.colorWell.selectedColor ?? UIColor.black)
         }
         dismiss(animated: false, completion: nil)
     }

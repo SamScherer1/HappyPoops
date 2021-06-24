@@ -9,8 +9,8 @@
 import Foundation
 
 class FoodTypeCircle: UIView {
-    @objc public var letterTitle : String?
-    @objc public var color : UIColor?
+    public var letterTitle : String?
+    public var color : UIColor?
     var isActive = false
     var characterLabel = UILabel()
     

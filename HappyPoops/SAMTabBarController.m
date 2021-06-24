@@ -9,7 +9,7 @@
 #import "SAMTabBarController.h"
 #import "SAMTrackViewController.h"
 #import "SAMAddEventViewController.h"
-#import "SAMSettingsViewController.h"
+//#import "SAMSettingsViewController.h"
 #import "UIColor+SAMColors.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "HappyPoops-Swift.h"
@@ -20,7 +20,7 @@
 @property (strong, nonatomic) UINavigationController *graphNavigationVC;
 @property (strong, nonatomic) UINavigationController *settingsNavigationVC;
 @property (strong, nonatomic) AnalyzeViewController *analyzeVC;
-@property (strong, nonatomic) SAMSettingsViewController *settingsVC;
+@property (strong, nonatomic) SettingsViewController *settingsVC;
 
 @end
 
@@ -87,7 +87,7 @@
 //    self.analyzeVC.navigationItem.leftBarButtonItem = editGraphButton;
     
     // Setup Settings View Controller:
-    self.settingsVC = [SAMSettingsViewController new];
+    self.settingsVC = [SettingsViewController new];
     self.settingsVC.navigationItem.title = @"Settings";
     UIImage *settingsIcon = [UIImage systemImageNamed:@"gear"];
     UITabBarItem *settingsItem = [[UITabBarItem alloc] initWithTitle:@"Settings"
