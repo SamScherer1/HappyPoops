@@ -195,30 +195,27 @@
 #pragma mark -
 
 - (void)addMealWithFoodTypes:(NSDictionary *)foodTypesDictionary andCompletionDate:(NSDate *)date {
-    //TODO: reimplement
-//    Event *mealEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-//    mealEvent.date = date;
-//    mealEvent.isMeal = YES;
-//    //NSDictionary *qualitiesDictionary = @{ @"hasLactose":@(hasLactose) , @"hasGluten":@(hasGluten) , @"hasNuts":@(hasNuts) };
-//    NSData *archivedQualities = [NSKeyedArchiver archivedDataWithRootObject:foodTypesDictionary
-//                                                      requiringSecureCoding:NO
-//                                                                      error:nil];
-//    mealEvent.qualitiesDictionary = archivedQualities;
-//
-//    [self addEvent:mealEvent];
+    Event *mealEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    mealEvent.date = date;
+    mealEvent.isMeal = YES;
+    NSData *archivedQualities = [NSKeyedArchiver archivedDataWithRootObject:foodTypesDictionary
+                                                      requiringSecureCoding:NO
+                                                                      error:nil];
+    mealEvent.qualitiesDictionary = archivedQualities;
+
+    [self addEvent:mealEvent];
 }
 
 - (void)addPoopWithRating:(NSInteger)rating andCompletionDate:(NSDate *)date {
-    //TODO: reimplement
-//    Event *poopEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
-//    poopEvent.date = date;
-//    poopEvent.isMeal = NO;
-//    NSDictionary *qualitiesDictionary = @{ @"rating":@(rating) };
-//    NSData *archivedQualities = [NSKeyedArchiver archivedDataWithRootObject:qualitiesDictionary
-//                                                      requiringSecureCoding:NO
-//                                                                      error:nil];
-//    poopEvent.qualitiesDictionary = archivedQualities;
-//    [self addEvent:poopEvent];
+    Event *poopEvent = [NSEntityDescription insertNewObjectForEntityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    poopEvent.date = date;
+    poopEvent.isMeal = NO;
+    NSDictionary *qualitiesDictionary = @{ @"rating":@(rating) };
+    NSData *archivedQualities = [NSKeyedArchiver archivedDataWithRootObject:qualitiesDictionary
+                                                      requiringSecureCoding:NO
+                                                                      error:nil];
+    poopEvent.qualitiesDictionary = archivedQualities;
+    [self addEvent:poopEvent];
 }
 
 - (void)addEvent:(Event*)event {

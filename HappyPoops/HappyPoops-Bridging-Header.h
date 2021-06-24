@@ -3,7 +3,5 @@
 //
 
 #import "SAMSettingsViewController.h"
-//#import "FoodType+CoreDataClass.h"
 #import "SAMTrackViewController.h"
-//#import "Event+CoreDataClass.h"
 #import "SAMTabBarController.h"
