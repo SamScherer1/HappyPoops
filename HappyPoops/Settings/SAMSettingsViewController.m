@@ -16,6 +16,7 @@
 @property (strong, nonatomic) UISwitch *lanDashboardSwitch;
 @property (weak, nonatomic) AppDelegate *appDelegate;
 @property (strong, nonatomic) UITableView *foodTypeTableView;
+@property (strong, nonatomic) UIButton *foodTypeEditButton;
 
 @end
 
@@ -44,15 +45,15 @@
     [foodTypesTitleLabel.leftAnchor constraintEqualToAnchor:foodTypesBackground.leftAnchor constant:15.0].active = YES;
     //[foodTypesTitleLabel.rightAnchor constraintEqualToAnchor:foodTypesBackground.rightAnchor constant:-15.0].active = YES;
     
-    UIButton *foodTypeEditButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    foodTypeEditButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [foodTypesBackground addSubview:foodTypeEditButton];
-    foodTypeEditButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
-    [foodTypeEditButton setTitle:@"Edit" forState:UIControlStateNormal];
-    foodTypeEditButton.titleLabel.textColor = UIColor.systemBlueColor;
-    [foodTypeEditButton.bottomAnchor constraintEqualToAnchor:foodTypesTitleLabel.bottomAnchor].active = YES;
-    [foodTypeEditButton.rightAnchor constraintEqualToAnchor:foodTypesBackground.rightAnchor constant:-15.0].active = YES;
-    [foodTypeEditButton addTarget:self action:@selector(toggleFoodTypeEditing) forControlEvents:UIControlEventTouchUpInside];
+    self.foodTypeEditButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.foodTypeEditButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [foodTypesBackground addSubview:self.foodTypeEditButton];
+    self.foodTypeEditButton.titleLabel.font = [UIFont systemFontOfSize:18.0];
+    [self.foodTypeEditButton setTitle:@"Edit" forState:UIControlStateNormal];
+    self.foodTypeEditButton.titleLabel.textColor = UIColor.systemBlueColor;
+    [self.foodTypeEditButton.bottomAnchor constraintEqualToAnchor:foodTypesTitleLabel.bottomAnchor].active = YES;
+    [self.foodTypeEditButton.rightAnchor constraintEqualToAnchor:foodTypesBackground.rightAnchor constant:-15.0].active = YES;
+    [self.foodTypeEditButton addTarget:self action:@selector(toggleFoodTypeEditing) forControlEvents:UIControlEventTouchUpInside];
     
     self.foodTypeTableView = [ContentSizedTableView new];
     self.foodTypeTableView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -107,6 +108,8 @@
 
 - (void)toggleFoodTypeEditing {
     [self.foodTypeTableView setEditing:!self.foodTypeTableView.isEditing];
+    [self.foodTypeEditButton setTitle:self.foodTypeTableView.isEditing ? @"Done" : @"Edit"
+                             forState:UIControlStateNormal];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
