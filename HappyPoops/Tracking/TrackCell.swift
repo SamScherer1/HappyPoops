@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Rename TrackCell -> EventCell
 class TrackCell: UITableViewCell {
     
     var timeLabel = UILabel()

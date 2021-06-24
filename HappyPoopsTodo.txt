@@ -1,5 +1,20 @@
 HappyPoops Todo:
+
+- On Return: test swift version of TrackViewController, finish implementing...
+
+- Convert the rest of the project to swift
+	- Track Cell
+	- Meal Cell
+		- See if green boxes still happens...
+	- Meal Settings Cell
+		- Fix green boxes
+		- Test add, delete
+- Revisit all @objc tags
+
+- Actually conform to MVC
+
 - Revisit all TODO's
+
 - SettingsVC:
 	- Get a better ordering system for food types (allow reordering?)(at least make sure new food types stay in a consistent location on reload)
 	- Instead of a color picker, give suggested colors which are unlike the current colors
@@ -11,6 +26,7 @@ HappyPoops Todo:
 		- Create a test project to demonstrate the error...
 
 - When an insight cell is tapped, chevron should rotate, display insights(for now just say "Not enough data to generate insights")
+
 - Add lines to graph to indicate time foods were eaten
 - Add an indicator of Today's date
 
@@ -20,8 +36,12 @@ HappyPoops Todo:
 	- Create a Graph library to use between projects
 	- Insights library encapsulating CoreML-related code
 
-- Convert the rest of the project to swift
 
 - Start using SwiftUI (can be used in the same project as UIKit?)
 
 - Make an App Icon that's like the Effective logo but with a toilet instead of an E
+
+
+
+Effective Habits TODO:
+- Change app name, bundle ID to EffectiveHabits

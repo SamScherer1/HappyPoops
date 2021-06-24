@@ -4,3 +4,4 @@
 
 #import "SAMTrackViewController.h"
 #import "SAMTabBarController.h"
+#import "SAMPoopCell.h"
