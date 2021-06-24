@@ -105,11 +105,14 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InsightCell", for: indexPath) as! InsightTableViewCell//TODO: revisit force unwrap
         cell.backgroundColor = UIColor.clear
         if let foodTypes = self.appDelegate?.fetchFoodTypes() {
+            if let name = foodTypes[indexPath.row].name {
+                cell.titleLabel.text = name
+            }
             do {
-                //TODO: encapsulate InsightTableViewCell better with declarative properties...
-                let cellColor = try NSKeyedUnarchiver.unarchivedObject(ofClass:UIColor.self , from: (foodTypes[indexPath.row].color)!)//TODO: revisit force unwrap
-                cell.arrowView.tintColor = cellColor!//TODO: revisit force unwrap
-                cell.titleLabel.text = foodTypes[indexPath.row].name!//TODO: revisit force unwrap
+                if let archivedColor = foodTypes[indexPath.row].color {
+                    cell.arrowView.tintColor = try NSKeyedUnarchiver.unarchivedObject(ofClass:UIColor.self ,
+                                                                                      from:archivedColor)
+                }
             } catch {
                 print("failed to unarchive cellColor")
             }
@@ -119,14 +122,10 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
     }
     
     @IBAction func handleResolutionChange() {
-        self.chart.set(resolution: .all)
-        //TODO: cast selectedSegmentIndex to TimeResolution...
-        //self.chart.set(resolution: self.xResolutionSC.selectedSegmentIndex as! SAMTimeResolution)//TODO: is force unwrap appropriate?
+        self.chart.set(resolution: TimeResolution(rawValue: self.xResolutionSC.selectedSegmentIndex) ?? .all)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }

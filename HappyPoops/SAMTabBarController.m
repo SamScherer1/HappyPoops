@@ -7,7 +7,6 @@
 //
 
 #import "SAMTabBarController.h"
-//#import "SAMAnalyzeViewController.h"
 #import "SAMTrackViewController.h"
 #import "SAMAddEventViewController.h"
 #import "SAMSettingsViewController.h"
@@ -21,8 +20,6 @@
 @property (strong, nonatomic) UINavigationController *graphNavigationVC;
 @property (strong, nonatomic) UINavigationController *settingsNavigationVC;
 @property (strong, nonatomic) AnalyzeViewController *analyzeVC;
-@property (strong, nonatomic) UIBarButtonItem *editButton;//Needs property?
-
 @property (strong, nonatomic) SAMSettingsViewController *settingsVC;
 
 @end
@@ -38,18 +35,13 @@
     self.trackVC = [SAMTrackViewController new];
     self.trackVC.navigationItem.title = @"Track";
     
-    self.editButton = [[UIBarButtonItem alloc] initWithTitle:@" Edit "
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@" Edit "
                                                        style:UIBarButtonItemStylePlain
                                                       target:self.trackVC
                                                       action:@selector(editTasks)];
-    self.trackVC.editButton = self.editButton;
-
-//    UIBarButtonItem *addTaskButton = [[UIBarButtonItem alloc] initWithTitle:@" + "
-//                                                                      style:UIBarButtonItemStylePlain
-//                                                                     target:self
-//                                                                     action:@selector(showAddTaskVC)];
+    self.trackVC.editButton = editButton;
     
-    self.trackVC.navigationItem.leftBarButtonItem = self.editButton;
+    self.trackVC.navigationItem.leftBarButtonItem = editButton;
     
     UIImage *addImage = [UIImage systemImageNamed:@"plus"];
     
@@ -87,13 +79,12 @@
     self.graphNavigationVC.tabBarItem = analyzeItem;
     
     
-    UIBarButtonItem *editGraphButton = [[UIBarButtonItem alloc] initWithTitle:@" Edit "
-                                                                        style:UIBarButtonItemStylePlain
-                                                                       target:self.analyzeVC
-                                                                       action:@selector(editGraphs)];
-    //self.analyzeVC.editButton = editGraphButton;
-
-    self.analyzeVC.navigationItem.leftBarButtonItem = editGraphButton;
+//    UIBarButtonItem *editGraphButton = [[UIBarButtonItem alloc] initWithTitle:@" Edit "
+//                                                                        style:UIBarButtonItemStylePlain
+//                                                                       target:self.analyzeVC
+//                                                                       action:@selector(editGraphs)];
+//
+//    self.analyzeVC.navigationItem.leftBarButtonItem = editGraphButton;
     
     // Setup Settings View Controller:
     self.settingsVC = [SAMSettingsViewController new];
