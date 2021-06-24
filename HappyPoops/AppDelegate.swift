@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Set initial food types
-        if UserDefaults.standard.bool(forKey: "launchedBefore") {
-            UserDefaults.standard.set(3, forKey: "nextFoodTypeIndex")
+        if !UserDefaults.standard.bool(forKey: "launchedBefore") {
+            UserDefaults.standard.set(3, forKey: "nextFoodTypeIndex")//TODO: this is a kinda hacky way to keep food types in order...
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             
             let foodTypeLactose = NSEntityDescription.insertNewObject(forEntityName: "FoodType",
@@ -93,7 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @objc func fetchFoodTypes() -> [FoodType] {
         //    NSSortDescriptor *foodTypeSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
         //    return [self fetchArrayOfType:@"FoodType" withSortDescriptor:foodTypeSortDescriptor];
-        return [FoodType]()//TODO
+        let foodSortDescriptor = NSSortDescriptor.init(key: "index", ascending: true)
+        return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as! [FoodType]//TODO: reconsider force...
     }
     
     @objc func saveContext() {
@@ -174,13 +175,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //+ (NSMutableArray *)fetchArrayForData:(NSData *)archivedArray ofClass:(Class)class {
-    func fetchArray(for data:Data, ofType:AnyClass) -> [Any] {
+    //func fetchArray(for data:Data, ofType:AnyClass) -> [Any] {
         //    NSSet *arrayAndDateClasses = [[NSSet alloc] initWithArray:@[NSMutableArray.class, class]];
         //    NSMutableArray *dates = [NSKeyedUnarchiver unarchivedObjectOfClasses:arrayAndDateClasses
         //                                                                fromData:archivedArray
         //                                                                   error:nil];
         //    return dates;
         //return NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: ofType, from: data)
-        return []
-    }
+      //  return []
+    //}
 }
