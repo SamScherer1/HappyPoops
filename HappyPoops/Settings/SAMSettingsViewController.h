@@ -1,6 +1,6 @@
 //
 //  SAMSettingsViewController.h
-//  Effective
+//  HappyPoops
 //
 //  Created by Samuel Scherer on 10/14/20.
 //  Copyright © 2020 SamuelScherer. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  SAMXAxisFormatter.swift
-//  Effective
+//  HappyPoops
 //
 //  Created by Samuel Scherer on 8/27/20.
 //  Copyright © 2020 SamuelScherer. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  SAMTabBarController.h
-//  Effective
+//  HappyPoops
 //
 //  Created by Samuel Scherer on 8/6/20.
 //  Copyright © 2020 SamuelScherer. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  SAMAddTaskViewController.h
-//  Effective
+//  HappyPoops
 //
 //  Created by Samuel Scherer on 7/28/19.
 //  Copyright © 2019 SamuelScherer. All rights reserved.

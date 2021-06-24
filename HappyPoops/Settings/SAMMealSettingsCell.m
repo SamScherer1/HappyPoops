@@ -8,7 +8,6 @@
 
 #import "SAMMealSettingsCell.h"
 #import "HappyPoops-Swift.h"
-//#import "FoodType+CoreDataClass.h"
 
 @interface SAMMealSettingsCell()
 
