@@ -1,0 +1,27 @@
+HappyPoops Todo:
+- Revisit all TODO's
+- SettingsVC:
+	- Get a better ordering system for food types (allow reordering?)(at least make sure new food types stay in a consistent location on reload)
+	- Instead of a color picker, give suggested colors which are unlike the current colors
+- Graph Problems:
+	- Fix clustered labels in XAxisFormatter
+		- Also for month data show the name of the month and year like Oct/21
+	- Fix extra lines drawn as points are added
+		- Try updating the cocoapod (downgrading?)
+		- Create a test project to demonstrate the error...
+
+- When an insight cell is tapped, chevron should rotate, display insights(for now just say "Not enough data to generate insights")
+- Add lines to graph to indicate time foods were eaten
+- Add an indicator of Today's date
+
+- Create import/export csv abilities
+
+- Create Libraries for Code Reuse:
+	- Create a Graph library to use between projects
+	- Insights library encapsulating CoreML-related code
+
+- Convert the rest of the project to swift
+
+- Start using SwiftUI (can be used in the same project as UIKit?)
+
+- Make an App Icon that's like the Effective logo but with a toilet instead of an E
