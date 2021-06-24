@@ -41,9 +41,6 @@ class InsightTableViewCell: UITableViewCell {
         self.titleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -5.0).isActive = true
         self.titleLabel.text = "Food Type Title"
         self.titleLabel.textColor = .white
-        
-        //TODO: add KVO for title, chevron color to update the view...
-        
     }
     
 }

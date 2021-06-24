@@ -10,7 +10,6 @@
 #import "SAMTrackViewController.h"
 #import "SAMPoopCell.h"
 #import "SAMMealCell.h"
-//#import "Event+CoreDataClass.h"
 #import "UIColor+SAMColors.h"
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -70,21 +69,6 @@
     [self.tableView setEditing:NO];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
-    // Start timer to refresh task completion status on a new day
-    NSDate *currentTime = [NSDate date];
-    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:( NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitDay ) fromDate:currentTime];
-    [dateComponents setDay:dateComponents.day + 1];
-    NSDate *timerStartDate = [[NSCalendar currentCalendar] dateFromComponents:dateComponents];
-    NSTimer *dailyUpdateTimer = [[NSTimer alloc] initWithFireDate:timerStartDate
-                                                         interval:86400
-                                                          repeats:YES
-                                                            block:^(NSTimer * _Nonnull timer) {
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        [self updateTaskCompletion];
-    }];
-    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:dailyUpdateTimer forMode:NSDefaultRunLoopMode];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadTableView)
                                                  name:@"FoodTypesUpdated"
@@ -96,21 +80,6 @@
     tapRecognizer.numberOfTapsRequired = taps;
     [self.tableView addGestureRecognizer:tapRecognizer];
     return tapRecognizer;
-}
-
-- (void)updateTaskCompletion {
-    [self.tableView reloadData];
-    self.lastTaskUpdateTime = [NSDate date];
-}
-
-- (void)viewDidAppear:(BOOL)animated {//TODO: necessary once timer is working?
-    [super viewDidAppear:animated];
-    if (self.lastTaskUpdateTime == nil) {
-        [self updateTaskCompletion];
-    } else if (![[NSCalendar currentCalendar] isDateInToday:self.lastTaskUpdateTime]) {
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-        [self updateTaskCompletion];
-    }
 }
 
 
@@ -169,15 +138,6 @@
         [self.appDelegate saveContext];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"EventsUpdated" object:nil];
         [self.tableView reloadData];
-    }
-}
-
-- (void)decrimentBadgeCount {//TODO: move to AppDelegate, use in TabBar PresentNotificationWith..
-    NSInteger badgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber];
-    if (badgeNumber > 0) {
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:badgeNumber - 1];
-    } else {
-        NSLog(@"couldn't decriment badge #");
     }
 }
 

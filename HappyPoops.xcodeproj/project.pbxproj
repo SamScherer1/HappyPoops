@@ -199,10 +199,10 @@
 		3AC3EFA42683EE2A00CE1CEB /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
+				3AC3EFA72683EE6700CE1CEB /* Charts */,
 				3AC3EFAC2683EE8200CE1CEB /* AnalyzeViewController.swift */,
 				3AC3EFAD2683EE8200CE1CEB /* GraphCell.swift */,
 				3AC3EFAE2683EE8200CE1CEB /* InsightTableViewCell.swift */,
-				3AC3EFA72683EE6700CE1CEB /* Charts */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";

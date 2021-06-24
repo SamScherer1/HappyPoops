@@ -29,8 +29,6 @@ class Chart: LineChartView {
     }
     
     func setupUI() {
-        //self.xAxis.granularity = 1.0
-        //self.xAxis.granularityEnabled = true
         self.leftAxis.granularity = 1.0
         self.leftAxis.granularityEnabled = true
         self.rightAxis.enabled = false
@@ -48,13 +46,13 @@ class Chart: LineChartView {
     }
     
     public func set(dates:[Date], values:[NSValue]) {
-        //let dates = dates as! [Date]
-        let values = values as! [Double]
-        let pointsArray = zip(dates, values)
-        for (date, point) in pointsArray {
-            self.datePointsArray.append(DateValuePoint(date: date, value: point))
+        if let values = values as? [Double] {
+            let pointsArray = zip(dates, values)
+            for (date, point) in pointsArray {
+                self.datePointsArray.append(DateValuePoint(date: date, value: point))
+            }
+            self.updateOnMainThread()
         }
-        self.updateOnMainThread()
     }
     
     func doublesFrom(dates:[Date]) -> Array<Double> {
@@ -76,7 +74,7 @@ class Chart: LineChartView {
     func update() {
         var pointsArray = [ChartDataEntry]()
         guard let startDate = self.datePointsArray.first?.date else {
-            //TODO: clear graph?
+            self.reloadInputViews()
             return
         }
         if self.resolution == .all {
@@ -94,7 +92,6 @@ class Chart: LineChartView {
                     sumCount += 1
                     runningSum = runningSum + point.value
                 } else {
-                    // Otherwise,
                     pointsArray.append(ChartDataEntry(x: beginSummingPeriod.timeIntervalSince(startDate), y: runningSum/Double(sumCount)))
                     sumCount = 1
                     runningSum = point.value

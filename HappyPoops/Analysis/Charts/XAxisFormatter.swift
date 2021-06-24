@@ -12,7 +12,7 @@ import Charts
 class XAxisFormatter : IAxisValueFormatter {
     public var xCount = 0
     public var startDate = Date()
-    public var resolution = TimeResolution.all //TODO: set this variable when changed...
+    public var resolution = TimeResolution.all
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let dateFormatter = DateFormatter()

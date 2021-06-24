@@ -83,18 +83,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
 
-    @objc func fetchEvents() -> [Event] {
-        //NSSortDescriptor *eventSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-        //return [self fetchArrayOfType:@"Event" withSortDescriptor:eventSortDescriptor];
+    @objc func fetchEvents() -> [Event]? {
         let eventSortDescriptor = NSSortDescriptor.init(key: "date", ascending: true)
-        return self.fetchArray(of: "Event", with: eventSortDescriptor) as! [Event] //TODO: reconsider force...
+        return self.fetchArray(of: "Event", with: eventSortDescriptor) as? [Event]
     }
     
-    @objc func fetchFoodTypes() -> [FoodType] {
-        //    NSSortDescriptor *foodTypeSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index" ascending:YES];
-        //    return [self fetchArrayOfType:@"FoodType" withSortDescriptor:foodTypeSortDescriptor];
+    @objc func fetchFoodTypes() -> [FoodType]? {
         let foodSortDescriptor = NSSortDescriptor.init(key: "index", ascending: true)
-        return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as! [FoodType]//TODO: reconsider force...
+        return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as? [FoodType]
     }
     
     @objc func saveContext() {
@@ -103,53 +99,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do {
                 try context.save()
             } catch {
-                // TODO: Replace this implementation with code to handle the error appropriately.
-                // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                NSLog("Unresolved error");
-                abort()
+                NSLog("Failed to save persistentContainer context in CoreData");
             }
         }
     }
     
     @objc func deleteFoodType(at index:Int) {
-        print("TODOOOOO")
-        //    FoodType *foodTypeToDelete = [[self fetchFoodTypes] objectAtIndex:index];
-        //    [self.persistentContainer.viewContext deleteObject:foodTypeToDelete];
-        self.saveContext()
+        if let foodTypeToDelete = self.fetchFoodTypes()?[index] {
+            self.persistentContainer.viewContext.delete(foodTypeToDelete)
+            self.saveContext()
+        }
     }
-    
-    //TODO: necessary?
-    //- (void)applicationWillEnterForeground:(UIApplication *)application {
-    //    if (self.tabBarController != nil) {
-    //        [self.tabBarController.trackVC.tableView reloadData];
-    //    }
-    //}
 
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
     
     //MARK: - Core Data Saving support
-    //
-    // Type can be "Event" or "FoodType"
-    //- (NSMutableArray *)fetchArrayOfType:(NSString *)type withSortDescriptor:(NSSortDescriptor *)sortDescriptor {
-    
-    //    NSManagedObjectContext *managedObjectContext = self.persistentContainer.viewContext;
-    //
-    //    NSEntityDescription *entity = [NSEntityDescription entityForName:type inManagedObjectContext:managedObjectContext];
-    //    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    //    [request setEntity:entity];
-    //
-    //    NSArray *sortDescriptorArray = @[sortDescriptor];
-    //    [request setSortDescriptors:sortDescriptorArray];
-    //
-    //    NSMutableArray *fetchResults = [[managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
-    //    if (!fetchResults) {
-    //        NSLog(@"Failed to load %@s from disk", type);
-    //        return nil;
-    //    }
-    //    return fetchResults;
-    //}
     func fetchArray(of type:String, with sortDescriptor:NSSortDescriptor) -> [Any] {
         let managedObjectContext = self.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: type, in: managedObjectContext)
@@ -165,15 +131,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError()
         }
     }
-    
-    //+ (NSMutableArray *)fetchArrayForData:(NSData *)archivedArray ofClass:(Class)class {
-    //func fetchArray(for data:Data, ofType:AnyClass) -> [Any] {
-        //    NSSet *arrayAndDateClasses = [[NSSet alloc] initWithArray:@[NSMutableArray.class, class]];
-        //    NSMutableArray *dates = [NSKeyedUnarchiver unarchivedObjectOfClasses:arrayAndDateClasses
-        //                                                                fromData:archivedArray
-        //                                                                   error:nil];
-        //    return dates;
-        //return NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClass: ofType, from: data)
-      //  return []
-    //}
 }

@@ -66,7 +66,6 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.analysisTableView.backgroundColor = UIColor.clear
         self.analysisTableView.isScrollEnabled = false
         self.analysisTableView.dataSource = self
-        //TODO: need to set delegate to self too?
         self.analysisTableView.register(InsightTableViewCell.self, forCellReuseIdentifier: "InsightCell")
         
         self.analysisTableView.topAnchor.constraint(equalTo: self.xResolutionSC.bottomAnchor, constant: 15).isActive = true
@@ -74,11 +73,13 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.analysisTableView.rightAnchor.constraint(equalTo: self.chart.rightAnchor).isActive = true
         self.analysisTableView.bottomAnchor.constraint(equalTo: backgroundRectangle.bottomAnchor).isActive = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadChartPoints), name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadChartPoints),
+                                               name: NSNotification.Name(rawValue: "EventsUpdated"),
+                                               object: nil)
     }
     
-    @objc func reloadChartPoints() {//TODO: use @IBAction?
-        //TODO: convert to one dateValue array (or maybe )
+    @IBAction func reloadChartPoints() {
         var dateArray = [Date]()
         var valueArray = [NSValue]()
         if let eventArray = self.appDelegate?.fetchEvents() {
@@ -98,11 +99,11 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.appDelegate?.fetchFoodTypes().count ?? 1
+        return self.appDelegate?.fetchFoodTypes()?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "InsightCell", for: indexPath) as! InsightTableViewCell//TODO: revisit force unwrap
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InsightCell", for: indexPath) as! InsightTableViewCell
         cell.backgroundColor = UIColor.clear
         if let foodTypes = self.appDelegate?.fetchFoodTypes() {
             if let name = foodTypes[indexPath.row].name {
@@ -117,7 +118,6 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
                 print("failed to unarchive cellColor")
             }
         }
-        //TODO: implement foodTypes appearing
         return cell
     }
     

@@ -45,9 +45,10 @@ import UIKit
         nameLabel.textColor = UIColor.white
         
         self.nameTextView = UITextView()
-        //TODO: disallow multiple lines of text
-//        self.nameTextView.textContainer.maximumNumberOfLines = 1
-//        self.nameTextView.textContainer.lineBreakMode = .byClipping
+
+        self.nameTextView.textContainer.maximumNumberOfLines = 1
+        self.nameTextView.textContainer.lineBreakMode = .byClipping
+
         self.nameTextView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(self.nameTextView)
         self.nameTextView.layer.cornerRadius = 5.0;
@@ -70,12 +71,7 @@ import UIKit
         self.view.addSubview(self.colorWell)
         self.colorWell.leftAnchor.constraint(equalTo: colorLabel.rightAnchor, constant: 15.0).isActive = true
         self.colorWell.centerYAnchor.constraint(equalTo: colorLabel.centerYAnchor).isActive = true
-        //self.colorWell.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        //self.colorWell.heightAnchor.constraint(equalTo: self.colorWell.widthAnchor).isActive = true
         self.colorWell.widthAnchor.constraint(equalToConstant: 50.0).isActive = true
-        //self.colorWell.isOpaque = true
-        //TODO: how to disable opacity in color well?
-        //TODO: how to disable black in color well?
         
         let okButton = UIButton.init(type: .system)
         okButton.translatesAutoresizingMaskIntoConstraints = false
@@ -83,7 +79,7 @@ import UIKit
         okButton.titleLabel?.textColor = UIColor.systemBlue
         okButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         okButton.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 10.0).isActive = true
-        okButton.setTitle("Add Task", for: UIControl.State.normal)
+        okButton.setTitle("Add Food Type", for: UIControl.State.normal)
         okButton.addTarget(self, action: #selector(addFoodType), for:.touchUpInside)
 
         let cancelButton = UIButton.init(type: .system)
@@ -94,18 +90,6 @@ import UIKit
         cancelButton.topAnchor.constraint(equalTo: okButton.bottomAnchor, constant: 10.0).isActive = true
         cancelButton.setTitle("Cancel", for: UIControl.State.normal)
         cancelButton.addTarget(self, action: #selector(cancelAddFoodType), for:.touchUpInside)
-
-        
-//        let colorPickerVC = UIColorPickerViewController()
-//        colorPickerVC.view.translatesAutoresizingMaskIntoConstraints = false
-//        self.view.addSubview(colorPickerVC.view)
-//        colorPickerVC.view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 15.0).isActive = true
-//        colorPickerVC.view.topAnchor.constraint(equalTo: colorLabel.bottomAnchor, constant: 15.0).isActive = true
-//        colorPickerVC.view.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -15.0).isActive = true
-//        colorPickerVC.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -15.0).isActive = true
-        
-        //self.nameTextView.backgroundColor = UIColor.gray
-        
     }
     
     @objc func addFoodType() {

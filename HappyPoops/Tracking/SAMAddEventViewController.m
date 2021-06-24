@@ -8,37 +8,25 @@
 
 #import "SAMAddEventViewController.h"
 #import "SAMTrackViewController.h"
-//#import "Event+CoreDataClass.h"
 #import "UIColor+SAMColors.h"
 #import <MapKit/MapKit.h>
-//#import "FoodType+CoreDataClass.h"
 #import "HappyPoops-Swift.h"
 
 @interface SAMAddEventViewController ()
 
-//TODO: remove unused properties
-@property UISegmentedControl *taskTypeSC;
-@property UISegmentedControl *reminderTypeSC;
-@property (strong, nonatomic) UISwitch *reminderSwitch;
-@property (strong, nonatomic) NSLayoutConstraint *titleBottomConstraint1;
-@property (strong, nonatomic) NSLayoutConstraint *titleBottomConstraint2;
-
 @property (strong, nonatomic) UILabel *eventPropertiesLabel;
 @property (strong, nonatomic) UISegmentedControl *eventTypeControl;
-
-@property (strong, nonatomic) NSMutableArray *foodTypeLabels;
-@property (strong, nonatomic) NSMutableArray *foodTypeSwitches;
-
 @property (strong, nonatomic) UILabel *poopRatingLabel;
 @property (strong, nonatomic) UIPickerView *poopRatingPicker;
 @property (strong, nonatomic) NSLayoutConstraint *timeToMealConstraint;
 @property (strong, nonatomic) NSLayoutConstraint *timeToPoopConstraint;
+@property (strong, nonatomic) UIDatePicker *datePicker;
+
+@property (strong, nonatomic) NSMutableArray *foodTypeLabels;
+@property (strong, nonatomic) NSMutableArray *foodTypeSwitches;
 @property (strong, nonatomic) NSArray *oneToTenArray;
 @property (strong, nonatomic) NSArray *foodTypeArray;
-
 @property (assign, nonatomic) NSInteger currentRating;
-
-@property (strong, nonatomic) UIDatePicker *datePicker;
 
 @end
 

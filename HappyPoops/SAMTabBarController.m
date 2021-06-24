@@ -115,27 +115,4 @@
     [self.trackNavigationVC pushViewController:addTaskVC animated:NO];
 }
 
-- (void)presentNotificationWithText:(NSString *)text {
-    AudioServicesPlaySystemSound (1007);
-    
-    UINavigationController *selectedNavController = self.selectedViewController;
-    NSString *oldTitle = selectedNavController.topViewController.navigationItem.title;
-    selectedNavController.topViewController.navigationItem.title = text;
-    NSTimer *showNotificationTimer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:NO block:^(NSTimer * _Nonnull timer) {
-        selectedNavController.topViewController.navigationItem.title = oldTitle;
-    }];
-    NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-    [runLoop addTimer:showNotificationTimer forMode:NSDefaultRunLoopMode];
-    
-    //Reload tableview to show notification status
-    [self.trackVC.tableView reloadData];
-    
-    NSInteger badgeNumber = [[UIApplication sharedApplication] applicationIconBadgeNumber];
-    if (badgeNumber >= 0) {
-        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:badgeNumber + 1];
-    } else {
-        NSLog(@"something's wrong: found negative badgeNumber");
-    }
-}
-
 @end

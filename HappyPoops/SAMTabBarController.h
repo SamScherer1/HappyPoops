@@ -16,8 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) SAMTrackViewController *trackVC;
 
-- (void)presentNotificationWithText:(NSString *)text;
-
 @end
 
 NS_ASSUME_NONNULL_END

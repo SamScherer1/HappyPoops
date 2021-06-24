@@ -87,19 +87,18 @@
 }
 
 - (void)addFoodTypeWithName:(NSString *)name andColor:(UIColor *)color {
-    //TODO: reimplement
-//    FoodType *newFoodType = [NSEntityDescription insertNewObjectForEntityForName:@"FoodType"
-//                                                          inManagedObjectContext:self.appDelegate.persistentContainer.viewContext];
-//    newFoodType.name = name;
-//    newFoodType.color = [NSKeyedArchiver archivedDataWithRootObject:color
-//                                              requiringSecureCoding:NO
-//                                                              error:nil];
-//    newFoodType.index = [NSUserDefaults.standardUserDefaults integerForKey:@"nextFoodTypeIndex"];
-//
-//    [self.appDelegate saveContext];
-//    [self.foodTypeTableView reloadData];
-//
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"FoodTypesUpdated" object:nil];
+    FoodType *newFoodType = [NSEntityDescription insertNewObjectForEntityForName:@"FoodType"
+                                                          inManagedObjectContext:self.appDelegate.persistentContainer.viewContext];
+    newFoodType.name = name;
+    newFoodType.color = [NSKeyedArchiver archivedDataWithRootObject:color
+                                              requiringSecureCoding:NO
+                                                              error:nil];
+    newFoodType.index = [NSUserDefaults.standardUserDefaults integerForKey:@"nextFoodTypeIndex"];
+
+    [self.appDelegate saveContext];
+    [self.foodTypeTableView reloadData];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FoodTypesUpdated" object:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -140,10 +139,6 @@
     label.textAlignment = NSTextAlignmentLeft;
     label.font = [UIFont systemFontOfSize:fontSize];
     return label;
-}
-
-- (void)handleLANSwitchChange {
-    NSLog(@"TODO: implement handleLANSwitchChange");
 }
 
 /*
