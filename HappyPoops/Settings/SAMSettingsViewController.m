@@ -9,7 +9,6 @@
 #import "SAMSettingsViewController.h"
 #import "UIColor+SAMColors.h"
 #import "SAMMealSettingsCell.h"
-//#import "FoodType+CoreDataClass.h"
 #import "HappyPoops-Swift.h"
 
 @interface SAMSettingsViewController ()
@@ -88,18 +87,19 @@
 }
 
 - (void)addFoodTypeWithName:(NSString *)name andColor:(UIColor *)color {
-    FoodType *newFoodType = [NSEntityDescription insertNewObjectForEntityForName:@"FoodType"
-                                                          inManagedObjectContext:self.appDelegate.persistentContainer.viewContext];
-    newFoodType.name = name;
-    newFoodType.color = [NSKeyedArchiver archivedDataWithRootObject:color
-                                              requiringSecureCoding:NO
-                                                              error:nil];
-    newFoodType.index = [NSUserDefaults.standardUserDefaults integerForKey:@"nextFoodTypeIndex"];
-
-    [self.appDelegate saveContext];
-    [self.foodTypeTableView reloadData];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"FoodTypesUpdated" object:nil];
+    //TODO: reimplement
+//    FoodType *newFoodType = [NSEntityDescription insertNewObjectForEntityForName:@"FoodType"
+//                                                          inManagedObjectContext:self.appDelegate.persistentContainer.viewContext];
+//    newFoodType.name = name;
+//    newFoodType.color = [NSKeyedArchiver archivedDataWithRootObject:color
+//                                              requiringSecureCoding:NO
+//                                                              error:nil];
+//    newFoodType.index = [NSUserDefaults.standardUserDefaults integerForKey:@"nextFoodTypeIndex"];
+//
+//    [self.appDelegate saveContext];
+//    [self.foodTypeTableView reloadData];
+//
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"FoodTypesUpdated" object:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -11,7 +11,6 @@ import CoreData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    @objc var persistentContainer: NSPersistentContainer!
     var tabBarController: SAMTabBarController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -24,7 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.windowScene = windowScene
         self.tabBarController = SAMTabBarController.init()
         self.window?.rootViewController = self.tabBarController
-        //self.window?.rootViewController = TestViewController()
         self.window?.makeKeyAndVisible()
     }
 
