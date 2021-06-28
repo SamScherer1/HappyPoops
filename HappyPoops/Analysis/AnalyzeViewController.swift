@@ -12,7 +12,7 @@ import CoreData
 class AnalyzeViewController: UITableViewController {
     @objc public var appDelegate : AppDelegate?
     @objc public var managedObjectContext : NSManagedObjectContext?
-    @objc public var trackViewController : SAMTrackViewController?
+    @objc public var trackViewController : TrackViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()

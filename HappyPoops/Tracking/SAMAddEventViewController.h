@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SAMTrackViewController;
+@class TrackViewController;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SAMAddEventViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) NSString *taskTitle;
-@property (strong, nonatomic) SAMTrackViewController *trackViewController;
+@property (strong, nonatomic) TrackViewController *trackViewController;
 
 @property (strong, nonatomic) UITextField *titleTextField;
 

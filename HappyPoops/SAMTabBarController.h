@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SAMTrackViewController;
+@class TrackViewController;
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SAMTabBarController : UITabBarController
 
-@property (strong, nonatomic) SAMTrackViewController *trackVC;
+@property (strong, nonatomic) TrackViewController *trackVC;
 
 @end
 

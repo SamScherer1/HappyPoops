@@ -7,7 +7,6 @@
 //
 
 #import "SAMAddEventViewController.h"
-#import "SAMTrackViewController.h"
 #import "UIColor+SAMColors.h"
 #import <MapKit/MapKit.h>
 #import "HappyPoops-Swift.h"
@@ -196,10 +195,12 @@
             [foodTypesInMeal setObject:@(foodTypeSwitch.isOn) forKey:foodType.name];
             index ++;
         }
-        [self.trackViewController addMealWithFoodTypes:foodTypesInMeal andCompletionDate:self.datePicker.date];
+        //[self.trackViewController addMealWithFoodTypes:foodTypesInMeal andCompletionDate:self.datePicker.date];
+        [self.trackViewController addMealWith:foodTypesInMeal date:self.datePicker.date];
     } else {
         //Add Poop
-        [self.trackViewController addPoopWithRating:self.currentRating andCompletionDate:self.datePicker.date];
+        //[self.trackViewController addPoopWithRating:self.currentRating andCompletionDate:self.datePicker.date];
+        [self.trackViewController addPoopWith:self.currentRating date:self.datePicker.date];
     }
     
     [self.navigationController popViewControllerAnimated:NO];

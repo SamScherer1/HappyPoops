@@ -44,10 +44,10 @@ class MealSettingsCell: UITableViewCell {
                                context: UnsafeMutableRawPointer?) {
         if keyPath == "foodType" {
             self.titleLabel.text = self.foodType?.name ?? "Food Type"
-            self.foodTypeCircle.letterTitle = String((self.foodType?.name ?? "F").prefix(1))
+            self.foodTypeCircle.characterLabel.text = String((self.foodType?.name ?? "F").prefix(1))
             if let foodTypeColorData = self.foodType?.color {
                 do {
-                    self.foodTypeCircle.color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self,
+                    self.foodTypeCircle.backgroundColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self,
                                                                                        from: foodTypeColorData)
                 } catch {
                     NSLog("Failed to unarchive food type color: \(self.foodType?.description ?? "nil")")

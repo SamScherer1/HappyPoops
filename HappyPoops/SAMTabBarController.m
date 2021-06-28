@@ -7,7 +7,6 @@
 //
 
 #import "SAMTabBarController.h"
-#import "SAMTrackViewController.h"
 #import "SAMAddEventViewController.h"
 //#import "SAMSettingsViewController.h"
 #import "UIColor+SAMColors.h"
@@ -32,7 +31,7 @@
     [self.tabBar setBarStyle:UIBarStyleBlack];
         
     // Setup Track View Controller:
-    self.trackVC = [SAMTrackViewController new];
+    self.trackVC = [TrackViewController new];
     self.trackVC.navigationItem.title = @"Track";
     
     UIBarButtonItem *editButton = [[UIBarButtonItem alloc] initWithTitle:@" Edit "
