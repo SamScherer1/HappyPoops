@@ -23,6 +23,8 @@ class MealSettingsCell: UITableViewCell {
     }
     
     func setupView() {
+        self.backgroundColor = .clear
+        
         self.foodTypeCircle.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.foodTypeCircle)
         self.foodTypeCircle.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
@@ -43,16 +45,25 @@ class MealSettingsCell: UITableViewCell {
                                change: [NSKeyValueChangeKey : Any]?,
                                context: UnsafeMutableRawPointer?) {
         if keyPath == "foodType" {
-            self.titleLabel.text = self.foodType?.name ?? "Food Type"
-            self.foodTypeCircle.characterLabel.text = String((self.foodType?.name ?? "F").prefix(1))
-            if let foodTypeColorData = self.foodType?.color {
-                do {
-                    self.foodTypeCircle.backgroundColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self,
-                                                                                       from: foodTypeColorData)
-                } catch {
-                    NSLog("Failed to unarchive food type color: \(self.foodType?.description ?? "nil")")
-                }
+
+        }
+    }
+    
+    func update() {
+        self.titleLabel.text = self.foodType?.name ?? "Food Type"
+        self.foodTypeCircle.characterLabel.text = String((self.foodType?.name ?? "F").prefix(1))
+        if let foodTypeColorData = self.foodType?.color {
+            do {
+                self.foodTypeCircle.backgroundColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self,
+                                                                                   from: foodTypeColorData)
+            } catch {
+                NSLog("Failed to unarchive food type color: \(self.foodType?.description ?? "nil")")
             }
         }
+    }
+    
+    func update(with foodType:FoodType) {
+        self.foodType = foodType
+        self.update()
     }
 }
