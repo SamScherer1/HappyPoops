@@ -31,6 +31,7 @@
 		3AC3EFCB2683EEA900CE1CEB /* FoodTypeCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */; };
 		3AC5209B268A95F900B7EF0F /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */; };
 		3AC5209D268AB1C900B7EF0F /* UIColor+EffectiveColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */; };
+		3AC5209F268AB41900B7EF0F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209E268AB41900B7EF0F /* TabBarController.swift */; };
 		3AECA9F226852B4A00E399A5 /* PoopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECA9F126852B4A00E399A5 /* PoopCell.swift */; };
 		8614F3491B375EBDB67E9657 /* libPods-HappyPoops.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTypeCircle.swift; sourceTree = "<group>"; };
 		3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EffectiveColors.swift"; sourceTree = "<group>"; };
+		3AC5209E268AB41900B7EF0F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3AECA9F126852B4A00E399A5 /* PoopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoopCell.swift; sourceTree = "<group>"; };
 		58E866DDD6FA0141172E1B6C /* Pods-HappyPoops.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyPoops.debug.xcconfig"; path = "Target Support Files/Pods-HappyPoops/Pods-HappyPoops.debug.xcconfig"; sourceTree = "<group>"; };
 		650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HappyPoops.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +168,7 @@
 				3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */,
 				3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */,
 				3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */,
+				3AC5209E268AB41900B7EF0F /* TabBarController.swift */,
 			);
 			path = HappyPoops;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				3AC3EFB82683EE9C00CE1CEB /* ContentSizedTableView.swift in Sources */,
 				3AC3EFAA2683EE7800CE1CEB /* Chart.swift in Sources */,
 				3AC3EFBA2683EE9C00CE1CEB /* AddFoodTypeVC.swift in Sources */,
+				3AC5209F268AB41900B7EF0F /* TabBarController.swift in Sources */,
 				3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */,
 				3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */,
 				3AB0810E26851F92008D030C /* TrackViewController.swift in Sources */,
