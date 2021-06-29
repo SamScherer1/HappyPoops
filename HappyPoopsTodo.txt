@@ -1,13 +1,22 @@
 HappyPoops Todo:
 
-- Convert the rest of the project to swift
-	- Meal Settings Cell
-		- Test add, delete
-- Revisit all @objc tags
+- Create AddEventViewControllerDelegate and use that to callback to TrackViewController
 
-- BugFix: crash on edit TrackVC
+- BugFix: Edit/Done gets mixed up on food types
+	- Also, delete food type not working
 
-- Feature: when editing TrackVC, tapping a food type should highlight it, dragging a poop cell should change its value.
+- Feature: turn poop quality selector into a horizontal picker view:
+	- https://www.youtube.com/watch?v=8EuoHAw_PBk
+
+- Implement: edit TrackVC
+	- Tap a food type to highlight it, 
+	- Dragging a poop cell to change its value.
+
+
+- BugFix: TimeSmoothing and date overlap on Graph...
+
+- Feature: Get FoodTypeCircles to show as circles
+
 
 - Actually conform to MVC
 
