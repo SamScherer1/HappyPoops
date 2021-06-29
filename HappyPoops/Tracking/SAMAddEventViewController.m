@@ -29,7 +29,7 @@
 
 @end
 
-@implementation SAMAddEventViewController 
+@implementation SAMAddEventViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -1,15 +1,13 @@
 HappyPoops Todo:
 
-- On Return: test swift version of TrackViewController, finish implementing...
-
 - Convert the rest of the project to swift
-	- Track Cell
-	- Meal Cell
-		- See if green boxes still happens...
 	- Meal Settings Cell
-		- Fix green boxes
 		- Test add, delete
 - Revisit all @objc tags
+
+- BugFix: crash on edit TrackVC
+
+- Feature: when editing TrackVC, tapping a food type should highlight it, dragging a poop cell should change its value.
 
 - Actually conform to MVC
 
