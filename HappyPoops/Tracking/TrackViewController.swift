@@ -94,6 +94,11 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     }
     
     @IBAction func toggleEditTasks() {
+        if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
+            if let cellToHideTime = self.tableView.cellForRow(at: selectedIndexPath) as? EventCell {
+                cellToHideTime.timeLabel.isHidden = true
+            }
+        }
         let isEditing = self.tableView.isEditing
         self.editButton.title = isEditing ? " Edit " : " Done "
         self.tableView.setEditing(!isEditing, animated: true)
