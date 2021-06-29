@@ -14,6 +14,8 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     var container : PersistentContainer!
     var editButton : UIBarButtonItem! //TODO: pass in on creation?
     
+    var trackCellArray = [UITableViewCell]()
+    
     override func loadView() {
         super.loadView()
         
@@ -53,6 +55,20 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     //MARK: - UITableViewDataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.container.fetchEvents()?.count ?? 0
+//        guard let events = self.container.fetchEvents() else { return 0 }
+//        guard var lastDate = events[0].date else { return 0 }
+//        var count = 1 //Start at 1 for the start date label
+//        let cal = Calendar.current
+//
+//        //TODO: reconsider ! unwraps
+//        for event in events {
+//            if !cal.isDate(event.date!, inSameDayAs: lastDate) {
+//                count += 1
+//            }
+//            count += 1
+//            lastDate = event.date!
+//        }
+//        return count
     }
     
     //TODO: a lot of this method is pretty hacky... lots of force unwrapping, casting, use of NSDictionary...
