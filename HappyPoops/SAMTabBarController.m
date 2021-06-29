@@ -7,7 +7,6 @@
 //
 
 #import "SAMTabBarController.h"
-#import "UIColor+SAMColors.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "HappyPoops-Swift.h"
 

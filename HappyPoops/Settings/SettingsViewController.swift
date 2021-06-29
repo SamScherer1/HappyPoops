@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         
         let foodTypesBackground = UIView()
         foodTypesBackground.translatesAutoresizingMaskIntoConstraints = false
-        foodTypesBackground.backgroundColor = .gray//TODO: use category
+        foodTypesBackground.backgroundColor = .halfTransparentDarkColor()
         foodTypesBackground.layer.cornerRadius = 15.0
         self.view.addSubview(foodTypesBackground)
         foodTypesBackground.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 15.0).isActive = true

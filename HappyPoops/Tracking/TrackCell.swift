@@ -25,21 +25,13 @@ class TrackCell: UITableViewCell {
     
     func setupView() {
         self.insetBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-//        [self addSubview:self.insetBackgroundView];
         self.addSubview(self.insetBackgroundView)
-//
-//        [self.insetBackgroundView.topAnchor constraintEqualToAnchor:self.topAnchor constant:5.0].active = YES;
+
         self.insetBackgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
-//        [self.insetBackgroundView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant:-5.0].active = YES;
         self.insetBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true
-        //
-//        self.insetBackgroundView.layer.cornerRadius = 15.0;
+        
         self.insetBackgroundView.layer.cornerRadius = 15.0
-//
-//        self.insetBackgroundView.backgroundColor = [UIColor halfTransparentDarkColor];
-        self.insetBackgroundView.backgroundColor = .gray//TODO: use extension
-//
-//        self.backgroundColor = [UIColor clearColor];
+        self.insetBackgroundView.backgroundColor = .halfTransparentDarkColor()
         self.backgroundColor = .clear
     }
 }

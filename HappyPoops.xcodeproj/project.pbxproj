@@ -21,7 +21,6 @@
 		3AC3EF852683EBF200CE1CEB /* HappyPoopsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF842683EBF200CE1CEB /* HappyPoopsUITests.swift */; };
 		3AC3EF9A2683EC7300CE1CEB /* SAMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */; };
 		3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF972683EC7300CE1CEB /* Enums.swift */; };
-		3AC3EF9D2683EC7300CE1CEB /* UIColor+SAMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF992683EC7300CE1CEB /* UIColor+SAMColors.m */; };
 		3AC3EFAA2683EE7800CE1CEB /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFA82683EE7800CE1CEB /* Chart.swift */; };
 		3AC3EFAB2683EE7800CE1CEB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFA92683EE7800CE1CEB /* XAxisFormatter.swift */; };
 		3AC3EFAF2683EE8200CE1CEB /* AnalyzeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFAC2683EE8200CE1CEB /* AnalyzeViewController.swift */; };
@@ -31,6 +30,7 @@
 		3AC3EFBA2683EE9C00CE1CEB /* AddFoodTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */; };
 		3AC3EFCB2683EEA900CE1CEB /* FoodTypeCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */; };
 		3AC5209B268A95F900B7EF0F /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */; };
+		3AC5209D268AB1C900B7EF0F /* UIColor+EffectiveColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */; };
 		3AECA9F226852B4A00E399A5 /* PoopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECA9F126852B4A00E399A5 /* PoopCell.swift */; };
 		8614F3491B375EBDB67E9657 /* libPods-HappyPoops.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */; };
 /* End PBXBuildFile section */
@@ -75,8 +75,6 @@
 		3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMTabBarController.h; sourceTree = "<group>"; };
 		3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMTabBarController.m; sourceTree = "<group>"; };
 		3AC3EF972683EC7300CE1CEB /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		3AC3EF982683EC7300CE1CEB /* UIColor+SAMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SAMColors.h"; sourceTree = "<group>"; };
-		3AC3EF992683EC7300CE1CEB /* UIColor+SAMColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SAMColors.m"; sourceTree = "<group>"; };
 		3AC3EFA82683EE7800CE1CEB /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		3AC3EFA92683EE7800CE1CEB /* XAxisFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
 		3AC3EFAC2683EE8200CE1CEB /* AnalyzeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyzeViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +84,7 @@
 		3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodTypeVC.swift; sourceTree = "<group>"; };
 		3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTypeCircle.swift; sourceTree = "<group>"; };
 		3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EffectiveColors.swift"; sourceTree = "<group>"; };
 		3AECA9F126852B4A00E399A5 /* PoopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoopCell.swift; sourceTree = "<group>"; };
 		58E866DDD6FA0141172E1B6C /* Pods-HappyPoops.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyPoops.debug.xcconfig"; path = "Target Support Files/Pods-HappyPoops/Pods-HappyPoops.debug.xcconfig"; sourceTree = "<group>"; };
 		650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HappyPoops.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,8 +165,7 @@
 				3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */,
 				3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */,
 				3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */,
-				3AC3EF982683EC7300CE1CEB /* UIColor+SAMColors.h */,
-				3AC3EF992683EC7300CE1CEB /* UIColor+SAMColors.m */,
+				3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */,
 			);
 			path = HappyPoops;
 			sourceTree = "<group>";
@@ -193,8 +191,8 @@
 		3AC3EFA42683EE2A00CE1CEB /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				3AC3EFA72683EE6700CE1CEB /* Charts */,
 				3AC3EFAC2683EE8200CE1CEB /* AnalyzeViewController.swift */,
+				3AC3EFA72683EE6700CE1CEB /* Charts */,
 				3AC3EFAD2683EE8200CE1CEB /* GraphCell.swift */,
 				3AC3EFAE2683EE8200CE1CEB /* InsightTableViewCell.swift */,
 			);
@@ -204,10 +202,10 @@
 		3AC3EFA52683EE5A00CE1CEB /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				3AB081072684EE95008D030C /* SettingsViewController.swift */,
 				3AC3EFB52683EE9C00CE1CEB /* AddFoodTypeVC.swift */,
 				3AC3EFB22683EE9B00CE1CEB /* ContentSizedTableView.swift */,
 				3AB081052684DF6D008D030C /* MealSettingsCell.swift */,
-				3AB081072684EE95008D030C /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -215,11 +213,11 @@
 		3AC3EFA62683EE5F00CE1CEB /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				3AB0810D26851F92008D030C /* TrackViewController.swift */,
 				3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */,
 				3AB0810926851472008D030C /* MealCell.swift */,
 				3AECA9F126852B4A00E399A5 /* PoopCell.swift */,
 				3AB0810B2685156E008D030C /* TrackCell.swift */,
-				3AB0810D26851F92008D030C /* TrackViewController.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -399,7 +397,6 @@
 			files = (
 				3AB0810A26851472008D030C /* MealCell.swift in Sources */,
 				3AC3EFB02683EE8200CE1CEB /* GraphCell.swift in Sources */,
-				3AC3EF9D2683EC7300CE1CEB /* UIColor+SAMColors.m in Sources */,
 				3AC3EF602683EBF200CE1CEB /* AppDelegate.swift in Sources */,
 				3AC3EFB12683EE8200CE1CEB /* InsightTableViewCell.swift in Sources */,
 				3AECA9F226852B4A00E399A5 /* PoopCell.swift in Sources */,
@@ -414,6 +411,7 @@
 				3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */,
 				3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */,
 				3AB0810E26851F92008D030C /* TrackViewController.swift in Sources */,
+				3AC5209D268AB1C900B7EF0F /* UIColor+EffectiveColors.swift in Sources */,
 				3AC3EFAF2683EE8200CE1CEB /* AnalyzeViewController.swift in Sources */,
 				3AC3EFCB2683EEA900CE1CEB /* FoodTypeCircle.swift in Sources */,
 				3AC3EFAB2683EE7800CE1CEB /* XAxisFormatter.swift in Sources */,

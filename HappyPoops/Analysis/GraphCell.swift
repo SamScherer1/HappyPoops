@@ -29,7 +29,7 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         backgroundRectangle.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5).isActive = true
         backgroundRectangle.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -15).isActive = true
         backgroundRectangle.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5).isActive = true
-        backgroundRectangle.backgroundColor = UIColor.darkGray
+        backgroundRectangle.backgroundColor = UIColor.halfTransparentDarkColor()
         backgroundRectangle.layer.cornerRadius = 15
         
         backgroundRectangle.addSubview(self.titleLabel)
