@@ -44,8 +44,8 @@ class PoopCell: TrackCell {
     override func setupView() {
         super.setupView()
         
-        super.insetBackgroundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 150.0).isActive = true
-        super.insetBackgroundView.rightAnchor.constraint(equalTo: super.rightAnchor, constant: -15.0).isActive = true
+        super.insetBackgroundView.leftAnchor.constraint(equalTo: super.contentView.leftAnchor, constant: 150.0).isActive = true
+        super.insetBackgroundView.rightAnchor.constraint(equalTo: super.contentView.rightAnchor, constant: -15.0).isActive = true
         
         self.ratingBarBackground.translatesAutoresizingMaskIntoConstraints = false
         self.ratingBarBackground.backgroundColor = .gray

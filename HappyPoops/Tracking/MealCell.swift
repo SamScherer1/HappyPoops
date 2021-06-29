@@ -18,7 +18,7 @@ class MealCell: TrackCell {
 
     override func setupView() {
         super.setupView()
-        super.insetBackgroundView.leftAnchor.constraint(equalTo: super.leftAnchor, constant: 15.0).isActive = true
+        super.insetBackgroundView.leftAnchor.constraint(equalTo: super.contentView.leftAnchor, constant: 15.0).isActive = true
         self.circlesStackView.distribution = .equalSpacing
         self.circlesStackView.spacing = 10.0
         self.circlesStackView.translatesAutoresizingMaskIntoConstraints = false
