@@ -15,7 +15,7 @@ class MealCell: EventCell {
     var circlesStackView = UIStackView.init(arrangedSubviews: [])
     
     var mealDictionary : [String:Bool]?
-
+    
     override func setupView() {
         super.setupView()
         super.insetBackgroundView.leftAnchor.constraint(equalTo: super.contentView.leftAnchor, constant: 15.0).isActive = true
@@ -30,6 +30,16 @@ class MealCell: EventCell {
         self.circlesStackView.topAnchor.constraint(equalTo: super.insetBackgroundView.topAnchor, constant: 5.0).isActive = true
         self.circlesStackView.rightAnchor.constraint(equalTo: super.insetBackgroundView.rightAnchor, constant: -15.0).isActive = true
         self.circlesStackView.bottomAnchor.constraint(equalTo: super.insetBackgroundView.bottomAnchor, constant: -5.0).isActive = true
+        
+        self.timeLabel.text = "-TIME-"//TODO: remove, testing
+        self.timeLabel.textColor = .gray
+        self.timeLabel.isHidden = true
+        
+        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(self.timeLabel)
+        self.timeLabel.leftAnchor.constraint(equalTo: super.insetBackgroundView.rightAnchor).isActive = true
+        self.timeLabel.rightAnchor.constraint(equalTo: super.contentView.rightAnchor).isActive = true
+        self.timeLabel.centerYAnchor.constraint(equalTo: super.contentView.centerYAnchor).isActive = true
     }
     
     func updateCircles(with mealDictionary:[String: Bool]) {

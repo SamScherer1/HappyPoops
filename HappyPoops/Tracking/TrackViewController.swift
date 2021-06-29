@@ -80,7 +80,16 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             }
             cell = poopCell
         }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        
+        if let date = event.date {
+            cell?.timeLabel.text = dateFormatter.string(from: date)
+        }
         cell?.overrideUserInterfaceStyle = .dark
+        cell?.selectionStyle = .none
         return cell!
     }
     
@@ -113,6 +122,16 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         
         //TODO: Present Alert with datePicker, callback to set event time
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellToSelect = tableView.cellForRow(at: indexPath) as? EventCell else { return }
+        cellToSelect.timeLabel.isHidden = false
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        guard let cellToDeselect = tableView.cellForRow(at: indexPath) as? EventCell else { return }
+        cellToDeselect.timeLabel.isHidden = true
     }
     
     //    NSMutableArray *eventArray = [NSMutableArray arrayWithArray:[self.appDelegate fetchEvents]];
