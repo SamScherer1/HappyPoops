@@ -7,8 +7,6 @@
 //
 
 #import "SAMTabBarController.h"
-#import "SAMAddEventViewController.h"
-//#import "SAMSettingsViewController.h"
 #import "UIColor+SAMColors.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import "HappyPoops-Swift.h"
@@ -102,16 +100,16 @@
 }
 
 - (void)showAddTaskVC {
-    SAMAddEventViewController *addTaskVC = [SAMAddEventViewController new];
-    addTaskVC.trackViewController = self.trackVC;
-    addTaskVC.navigationItem.title = @"Add Event";
+    AddEventViewController *addEventVC = [AddEventViewController new];
+    addEventVC.trackViewController = self.trackVC;
+    addEventVC.navigationItem.title = @"Add Event";
     
-    addTaskVC.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+    addEventVC.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done"
                                                                                    style:UIBarButtonItemStylePlain
-                                                                                  target:addTaskVC
-                                                                                  action:@selector(doneConfiguringTask)];
+                                                                                  target:addEventVC
+                                                                                  action:@selector(doneConfiguringEvent)];
     
-    [self.trackNavigationVC pushViewController:addTaskVC animated:NO];
+    [self.trackNavigationVC pushViewController:addEventVC animated:NO];
 }
 
 @end
