@@ -106,7 +106,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         }
 
         newFoodType.index = Int16(UserDefaults.standard.integer(forKey: "nextFoodTypeIndex"))
-        appDelegate.saveContext()
+        appDelegate.persistentContainer.saveContext()//TODO: use passed Container, not appDelegate's reference
         self.foodTypeTableView.reloadData()
 
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FoodTypesUpdated"), object: nil)

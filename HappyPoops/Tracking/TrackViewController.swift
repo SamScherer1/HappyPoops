@@ -11,6 +11,7 @@ import CoreData
 
 class TrackViewController: UITableViewController, UITextFieldDelegate {
     
+    var container : PersistentContainer!
     var editButton : UIBarButtonItem! //TODO: pass in on creation?
     var singleTapGestureRecognizer: UIGestureRecognizer?
     
@@ -138,7 +139,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)//TODO: necessary?
         self.tableView.reloadData()
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        appDelegate.saveContext()
+        appDelegate.persistentContainer.saveContext()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
     }
 }

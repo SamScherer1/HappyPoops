@@ -11,7 +11,9 @@ import UIKit
 import CoreData
 
 class AnalyzeViewController: UITableViewController {
-    var appDelegate : AppDelegate?
+    var appDelegate : AppDelegate?//TODO: remove, use PersistentContainer
+    var container : PersistentContainer!
+
     var managedObjectContext : NSManagedObjectContext?
     var trackViewController : TrackViewController?
 

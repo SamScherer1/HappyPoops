@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A715B90268B78CD004E16ED /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A715B8F268B78CD004E16ED /* PersistentContainer.swift */; };
 		3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081052684DF6D008D030C /* MealSettingsCell.swift */; };
 		3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081072684EE95008D030C /* SettingsViewController.swift */; };
 		3AB0810A26851472008D030C /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810926851472008D030C /* MealCell.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A715B8F268B78CD004E16ED /* PersistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentContainer.swift; sourceTree = "<group>"; };
 		3AB081052684DF6D008D030C /* MealSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSettingsCell.swift; sourceTree = "<group>"; };
 		3AB081072684EE95008D030C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3AB0810926851472008D030C /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */,
 				3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */,
 				3AC5209E268AB41900B7EF0F /* TabBarController.swift */,
+				3A715B8F268B78CD004E16ED /* PersistentContainer.swift */,
 			);
 			path = HappyPoops;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				3AC3EFAA2683EE7800CE1CEB /* Chart.swift in Sources */,
 				3AC3EFBA2683EE9C00CE1CEB /* AddFoodTypeVC.swift in Sources */,
 				3AC5209F268AB41900B7EF0F /* TabBarController.swift in Sources */,
+				3A715B90268B78CD004E16ED /* PersistentContainer.swift in Sources */,
 				3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */,
 				3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */,
 				3AB0810E26851F92008D030C /* TrackViewController.swift in Sources */,

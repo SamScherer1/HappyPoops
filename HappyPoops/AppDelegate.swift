@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Give Persistent Container to TabBarController which then passes it into the other VC's when loaded
+        if let rootVC = window?.rootViewController as? TabBarController {
+            rootVC.container = persistentContainer
+        }
+        
         // Set initial food types
         if !UserDefaults.standard.bool(forKey: "launchedBefore") {
             UserDefaults.standard.set(3, forKey: "nextFoodTypeIndex")//TODO: this is a kinda hacky way to keep food types in order...
@@ -49,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             foodTypeLactose.index = 1
             foodTypeGluten.index = 2
             foodTypeNuts.index = 3
-            self.saveContext()
+            self.persistentContainer.saveContext()
         } else {
             NSLog("Launched before")
         }
@@ -72,8 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //MARK: - Core Data stack
-    @objc lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "HappyPoops")
+    @objc lazy var persistentContainer: PersistentContainer = {
+        let container = PersistentContainer(name: "HappyPoops")
         container.loadPersistentStores { description, error in
             if let error = error {
                 fatalError("Unable to load persistent stores: \(error)")
@@ -93,26 +98,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as? [FoodType]
     }
     
-    func saveContext() {
-        let context = self.persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                NSLog("Failed to save persistentContainer context in CoreData");
-            }
-        }
-    }
-    
     func deleteFoodType(at index:Int) {
         if let foodTypeToDelete = self.fetchFoodTypes()?[index] {
             self.persistentContainer.viewContext.delete(foodTypeToDelete)
-            self.saveContext()
+            self.persistentContainer.saveContext()
+            
         }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        self.saveContext()
+        self.persistentContainer.saveContext()
     }
     
     //MARK: - Core Data Saving support

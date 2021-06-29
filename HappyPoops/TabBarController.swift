@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import CoreData
 import UIKit
 
 
 class TabBarController : UITabBarController {
+    
+    var container: PersistentContainer!
+    
     var trackVC = TrackViewController()
     var trackNavigationVC : UINavigationController?
     
@@ -19,9 +23,15 @@ class TabBarController : UITabBarController {
     var settingsVC = SettingsViewController()
     var settingsNavigationVC : UINavigationController?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard container != nil else {
+            fatalError("This view needs a persistent container.")
+        }
+        self.trackVC.container = container
+        self.analyzeVC.container = container
+        
         self.trackNavigationVC = UINavigationController(rootViewController: trackVC)
         
         self.tabBar.barStyle = .black

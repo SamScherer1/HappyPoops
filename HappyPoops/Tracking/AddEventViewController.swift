@@ -11,7 +11,7 @@ import UIKit
 class AddEventViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var taskTitle = "Event Title..."
-    var trackViewController : TrackViewController?//TODO: Turn this into a delegate
+    var trackViewController : TrackViewController?//TODO: Turn this into a closure
     var titleTextField = UITextField()
     var eventPropertiesLabel = UILabel()
     
