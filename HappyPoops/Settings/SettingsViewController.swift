@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class SettingsViewController: UIViewController, UITableViewDataSource {
+    //TODO: create a UIViewController subclass that has this container property... -> ControllerWithContainer
+    var container : PersistentContainer?
     
     var foodTypesEditButton = UIButton.init(type: .system)
     var foodTypeTableView = ContentSizedTableView()

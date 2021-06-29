@@ -23,14 +23,13 @@ class TabBarController : UITabBarController {
     var settingsVC = SettingsViewController()
     var settingsNavigationVC : UINavigationController?
     
+    convenience init(container: PersistentContainer) {
+        self.init()
+        self.container = container
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard container != nil else {
-            fatalError("This view needs a persistent container.")
-        }
-        self.trackVC.container = container
-        self.analyzeVC.container = container
         
         self.trackNavigationVC = UINavigationController(rootViewController: trackVC)
         
@@ -87,9 +86,18 @@ class TabBarController : UITabBarController {
         self.viewControllers = [self.trackNavigationVC!, self.graphNavigationVC!, self.settingsNavigationVC!]
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        guard container != nil else {
+            fatalError("This view needs a persistent container.")
+        }
+        self.trackVC.container = container
+        self.analyzeVC.container = container
+        self.settingsVC.container = container
+    }
+    
     @IBAction func showAddTaskVC() {
         let addEventVC = AddEventViewController()
-        addEventVC.trackViewController = self.trackVC
+        addEventVC.container = self.container
         addEventVC.navigationItem.title = "Add Event"
         addEventVC.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
                                                                        style: .plain,

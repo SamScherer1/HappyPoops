@@ -21,7 +21,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.windowScene = windowScene
-        self.tabBarController = TabBarController()
+        guard let persistentContainer = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer else {
+            fatalError()
+        }
+        self.tabBarController = TabBarController(container: persistentContainer)
         self.window?.rootViewController = self.tabBarController
         self.window?.makeKeyAndVisible()
     }

@@ -10,8 +10,9 @@ import UIKit
 
 class AddEventViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    var container: PersistentContainer!
+    
     var taskTitle = "Event Title..."
-    var trackViewController : TrackViewController?//TODO: Turn this into a closure
     var titleTextField = UITextField()
     var eventPropertiesLabel = UILabel()
     
@@ -172,22 +173,16 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIPickerVie
     }
 
     @IBAction func doneConfiguringEvent() {
-        //Again, use a delegate called AddEventViewControllerDelegate, not a simple reference
-        guard let trackViewController = self.trackViewController else {
-            NSLog("Couldn't find TrackViewController")
-            return
-        }
-
         if self.eventTypeControl.selectedSegmentIndex == 0 {
             // Add Meal
             var foodTypesInMeal = [String : Bool]()
             for (index, foodType) in self.foodTypeArray.enumerated() {
                 foodTypesInMeal[foodType.name!] = foodTypeSwitches[index].isOn
             }
-            trackViewController.addMeal(with: foodTypesInMeal, date: self.datePicker.date)
+            self.container.addMeal(with: foodTypesInMeal, date: self.datePicker.date)
         } else {
             //Add Poop
-            trackViewController.addPoop(with: self.currentRating, date: self.datePicker.date)
+            self.container.addPoop(with: self.currentRating, date: self.datePicker.date)
         }
         
         self.navigationController?.popViewController(animated: true)

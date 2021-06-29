@@ -42,6 +42,11 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
                                                selector: #selector(reloadTableView),
                                                name: NSNotification.Name(rawValue: "FoodTypesUpdated"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableView),
+                                               name: NSNotification.Name(rawValue: "EventsUpdated"),
+                                               object: nil)
+
     }
     
     @IBAction func handleTaps() {
@@ -81,7 +86,6 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         var cell: TrackCell?
         if event.isMeal {
             let mealCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
-            //mealCell.mealDictionary = qualitiesDictionary as? [String : Bool]
             mealCell.updateCircles(with: qualitiesDictionary as! [String: Bool])//TODO: reconsider force unwrap
             cell = mealCell
         } else {
@@ -96,6 +100,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func editTasks() {
         print("TODO")
+        self.tableView.setEditing(true, animated: true)
     }
 
     func addMeal(with foodTypes:[String:Bool], date:Date) {
