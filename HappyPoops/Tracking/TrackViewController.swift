@@ -13,7 +13,6 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     var container : PersistentContainer!
     var editButton : UIBarButtonItem! //TODO: pass in on creation?
-    //var singleTapGestureRecognizer: UIGestureRecognizer?//TODO: reimplement
     
     override func loadView() {
         super.loadView()
@@ -32,9 +31,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         
         self.tableView.backgroundColor = .black
         
-        //TODO: Add Tap Gesture Recognizer for showing time of completion
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTaps))
-//        self.tableView.addGestureRecognizer(tapRecognizer)
+        //TODO: Instead of highlighting selected cell, show a line with the event's time
         self.tableView.setEditing(false, animated: false)//TODO: necessary? test returning to it after leaving it in editing mode...
         self.tableView.separatorStyle = .none
         
@@ -49,15 +46,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
 
     }
     
-    @IBAction func handleTaps() {
-        //TODO
-    }
-    
     @IBAction func reloadTableView() {
-        //TODO: perform on main thread?
-//        [self.tableView performSelectorOnMainThread:@selector(reloadData)
-//                                          withObject:nil
-//                                       waitUntilDone:NO];
         self.tableView.reloadData()
     }
     
@@ -118,9 +107,13 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    //- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        guard let eventToMove = self.container.fetchEvents()?[sourceIndexPath.row] else { fatalError() }
+        
+        //Present Alert with datePicker, callback to set event time
+        
+    }
     
-        //TODO: implement reordering (add an alert to change the time when reordering too)
     //    NSMutableArray *eventArray = [NSMutableArray arrayWithArray:[self.appDelegate fetchEvents]];
     //    Event *fromEvent = eventArray[fromIndexPath.row];
     //    [eventArray removeObjectAtIndex:fromIndexPath.row];
