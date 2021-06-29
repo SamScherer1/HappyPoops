@@ -37,17 +37,6 @@ class MealSettingsCell: UITableViewCell {
         self.titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 15.0).isActive = true
         self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5.0).isActive = true
         self.titleLabel.textColor = .white
-        
-        self.addObserver(self, forKeyPath: "foodType", options: .new, context: nil)
-    }
-    
-    override func observeValue(forKeyPath keyPath: String?,
-                               of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
-                               context: UnsafeMutableRawPointer?) {
-        if keyPath == "foodType" {
-
-        }
     }
     
     func update() {

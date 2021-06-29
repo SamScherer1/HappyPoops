@@ -67,6 +67,15 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         addPropertyButton.topAnchor.constraint(equalTo: self.foodTypeTableView.bottomAnchor, constant: 15.0).isActive = true
         addPropertyButton.bottomAnchor.constraint(equalTo: foodTypesBackground.bottomAnchor, constant: -15.0).isActive = true
         addPropertyButton.addTarget(self, action: #selector(presentAddFoodTypeVC), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadTableViewAction),
+                                               name: NSNotification.Name(rawValue: "FoodTypesUpdated"),
+                                               object: nil)
+    }
+    
+    @IBAction func reloadTableViewAction() {
+        self.foodTypeTableView.reloadData()
     }
     
     @IBAction func toggleFoodTypeEditing() {
@@ -77,9 +86,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func presentAddFoodTypeVC() {
         let addFoodTypeVC = AddFoodTypeVC()
-        addFoodTypeVC.settingsVC = self
-        //TODO: animated or no?
-        //[self presentViewController:addFoodTypeVC animated:NO completion:nil];
+        addFoodTypeVC.container = self.container
         self.present(addFoodTypeVC, animated: true, completion: nil)
     }
     
@@ -91,27 +98,6 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: fontSize)
         return label
-    }
-    
-    func addFoodType(with name:String, color:UIColor) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        guard let newFoodType = NSEntityDescription.insertNewObject(forEntityName: "FoodType",
-                                                                    into: appDelegate.persistentContainer.viewContext) as? FoodType else {
-            return
-        }
-        newFoodType.name = name
-
-        do {
-            newFoodType.color = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
-        } catch {
-            NSLog("failed to unarchive FoodType color in SettingsViewController")
-        }
-
-        newFoodType.index = Int16(UserDefaults.standard.integer(forKey: "nextFoodTypeIndex"))
-        appDelegate.persistentContainer.saveContext()//TODO: use passed Container, not appDelegate's reference
-        self.foodTypeTableView.reloadData()
-
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FoodTypesUpdated"), object: nil)
     }
     
     //MARK: - TableViewDelegate Methods

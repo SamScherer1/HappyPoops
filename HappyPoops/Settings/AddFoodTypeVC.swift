@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 
 class AddFoodTypeVC : UIViewController {
+    
+    var container : PersistentContainer!
+    
     var nameTextView : UITextView
     var colorWell : UIColorWell
-    var settingsVC : SettingsViewController?//TODO: Shouldn't hold strong reference... use a delegate?
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -93,14 +95,11 @@ class AddFoodTypeVC : UIViewController {
     }
     
     @IBAction func addFoodType() {
-        if let settingsVC = self.settingsVC {
-            settingsVC.addFoodType(with: self.nameTextView.text, color: self.colorWell.selectedColor ?? UIColor.black)
-        }
-        dismiss(animated: false, completion: nil)
+        self.container.addFoodType(with: self.nameTextView.text, color: self.colorWell.selectedColor!)//TODO: fix ! unwrap
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelAddFoodType() {
-        dismiss(animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
-    
 }

@@ -48,7 +48,7 @@ class TabBarController : UITabBarController {
         let addEventButton = UIBarButtonItem(image: addImage,
                                              style: .plain,
                                              target: self,
-                                             action: #selector(showAddTaskVC))
+                                             action: #selector(showAddEventVC))
 
         self.trackVC.navigationItem.rightBarButtonItem = addEventButton
 
@@ -95,7 +95,7 @@ class TabBarController : UITabBarController {
         self.settingsVC.container = container
     }
     
-    @IBAction func showAddTaskVC() {
+    @IBAction func showAddEventVC() {
         let addEventVC = AddEventViewController()
         addEventVC.container = self.container
         addEventVC.navigationItem.title = "Add Event"

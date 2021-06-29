@@ -7,21 +7,9 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class PersistentContainer: NSPersistentContainer {
-    //TODO: Add common functions like addMeal etc.
-    
-    //MARK: - Core Data stack
-    @objc lazy var persistentContainer: PersistentContainer = {
-        let container = PersistentContainer(name: "HappyPoops")
-        container.loadPersistentStores { description, error in
-            if let error = error {
-                fatalError("Unable to load persistent stores: \(error)")
-            }
-        }
-        return container
-    }()
-
 
     func fetchEvents() -> [Event]? {
         let eventSortDescriptor = NSSortDescriptor.init(key: "date", ascending: true)
@@ -35,15 +23,34 @@ class PersistentContainer: NSPersistentContainer {
     
     func deleteFoodType(at index:Int) {
         if let foodTypeToDelete = self.fetchFoodTypes()?[index] {
-            self.persistentContainer.viewContext.delete(foodTypeToDelete)
-            self.persistentContainer.saveContext()
-            
+            self.viewContext.delete(foodTypeToDelete)
+            self.saveContext()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FoodTypesUpdated"), object: nil)
         }
+    }
+    
+    func addFoodType(with name:String, color:UIColor) {
+        guard let newFoodType = NSEntityDescription.insertNewObject(forEntityName: "FoodType",
+                                                                    into: self.viewContext) as? FoodType else {
+            return
+        }
+        newFoodType.name = name
+
+        do {
+            newFoodType.color = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false)
+        } catch {
+            NSLog("failed to unarchive FoodType.color")
+        }
+
+        newFoodType.index = Int16(UserDefaults.standard.integer(forKey: "nextFoodTypeIndex"))
+        self.saveContext()
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "FoodTypesUpdated"), object: nil)
     }
     
     //MARK: - Core Data Saving support
     func fetchArray(of type:String, with sortDescriptor:NSSortDescriptor) -> [Any] {
-        let managedObjectContext = self.persistentContainer.viewContext
+        let managedObjectContext = self.viewContext
         let entity = NSEntityDescription.entity(forEntityName: type, in: managedObjectContext)
         let request = NSFetchRequest<NSFetchRequestResult>.init()
         
@@ -106,4 +113,7 @@ class PersistentContainer: NSPersistentContainer {
         self.saveContext()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
     }
+    
+    //TODO: needs delete event?!
+    //Remember to send "EventsUpdated" notification
 }

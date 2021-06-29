@@ -63,17 +63,13 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     //MARK: - UITableViewDataSource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            return appDelegate.fetchEvents()?.count ?? 0
-        }
-        return 0
+        return self.container.fetchEvents()?.count ?? 0
     }
     
     //TODO: a lot of this method is pretty hacky... lots of force unwrapping, casting, use of NSDictionary...
     // Definitely create a coredata stack and revisit all usages of coredata...
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        guard let event = appDelegate.fetchEvents()?[indexPath.row] else { fatalError() }
+        guard let event = self.container.fetchEvents()?[indexPath.row] else { fatalError() }
         var nullableQualitiesDictionary : NSDictionary?
         do {
             nullableQualitiesDictionary = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSDictionary.self,
@@ -101,50 +97,5 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func editTasks() {
         print("TODO")
         self.tableView.setEditing(true, animated: true)
-    }
-
-    func addMeal(with foodTypes:[String:Bool], date:Date) {
-        let mealEvent = createEvent(with: date)
-        mealEvent.isMeal = true
-        
-        do {
-            let archivedQualities = try NSKeyedArchiver.archivedData(withRootObject: foodTypes,
-                                                                     requiringSecureCoding: false)
-            mealEvent.qualitiesDictionary = archivedQualities
-        } catch {
-            fatalError()
-        }
-        self.add(event: mealEvent)
-    }
-    
-    func addPoop(with rating:Int, date:Date) {
-        let poopEvent = createEvent(with: date)
-        poopEvent.isMeal = false
-        
-        do {
-            let archivedQualities = try NSKeyedArchiver.archivedData(withRootObject: ["rating": rating],
-                                                                     requiringSecureCoding: false)
-            poopEvent.qualitiesDictionary = archivedQualities
-        } catch {
-            fatalError()
-        }
-        self.add(event: poopEvent)
-    }
-    
-    func createEvent(with date:Date) -> Event {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        let managedObjectContext = appDelegate.persistentContainer.viewContext
-        
-        let event = NSEntityDescription.insertNewObject(forEntityName: "Event", into: managedObjectContext) as! Event
-        event.date = date
-        return event
-    }
-
-    func add(event:Event) {
-        self.dismiss(animated: true, completion: nil)//TODO: necessary?
-        self.tableView.reloadData()
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        appDelegate.persistentContainer.saveContext()
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
     }
 }
