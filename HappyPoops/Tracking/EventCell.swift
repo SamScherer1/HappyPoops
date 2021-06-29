@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-//Rename TrackCell -> EventCell
-class TrackCell: UITableViewCell {
+class EventCell: UITableViewCell {
     
     var timeLabel = UILabel()
     var insetBackgroundView = UIView()

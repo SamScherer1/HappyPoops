@@ -11,7 +11,7 @@
 		3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081052684DF6D008D030C /* MealSettingsCell.swift */; };
 		3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB081072684EE95008D030C /* SettingsViewController.swift */; };
 		3AB0810A26851472008D030C /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810926851472008D030C /* MealCell.swift */; };
-		3AB0810C2685156E008D030C /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810B2685156E008D030C /* TrackCell.swift */; };
+		3AB0810C2685156E008D030C /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810B2685156E008D030C /* EventCell.swift */; };
 		3AB0810E26851F92008D030C /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0810D26851F92008D030C /* TrackViewController.swift */; };
 		3AC3EF602683EBF200CE1CEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF5F2683EBF200CE1CEB /* AppDelegate.swift */; };
 		3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF612683EBF200CE1CEB /* SceneDelegate.swift */; };
@@ -58,7 +58,7 @@
 		3AB081052684DF6D008D030C /* MealSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSettingsCell.swift; sourceTree = "<group>"; };
 		3AB081072684EE95008D030C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3AB0810926851472008D030C /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
-		3AB0810B2685156E008D030C /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		3AB0810B2685156E008D030C /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		3AB0810D26851F92008D030C /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		3AC3EF5C2683EBF200CE1CEB /* HappyPoops.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HappyPoops.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC3EF5F2683EBF200CE1CEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */,
 				3AB0810926851472008D030C /* MealCell.swift */,
 				3AECA9F126852B4A00E399A5 /* PoopCell.swift */,
-				3AB0810B2685156E008D030C /* TrackCell.swift */,
+				3AB0810B2685156E008D030C /* EventCell.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				3AECA9F226852B4A00E399A5 /* PoopCell.swift in Sources */,
 				3AC5209B268A95F900B7EF0F /* AddEventViewController.swift in Sources */,
 				3AC3EF6A2683EBF200CE1CEB /* HappyPoops.xcdatamodeld in Sources */,
-				3AB0810C2685156E008D030C /* TrackCell.swift in Sources */,
+				3AB0810C2685156E008D030C /* EventCell.swift in Sources */,
 				3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */,
 				3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */,
 				3AC3EFB82683EE9C00CE1CEB /* ContentSizedTableView.swift in Sources */,

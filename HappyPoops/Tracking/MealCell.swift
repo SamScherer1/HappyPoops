@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MealCell: TrackCell {
+class MealCell: EventCell {
     
     var container: PersistentContainer?
     

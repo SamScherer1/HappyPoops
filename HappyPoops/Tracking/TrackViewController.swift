@@ -67,7 +67,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         }
         guard let qualitiesDictionary = nullableQualitiesDictionary else { fatalError() }
         
-        var cell: TrackCell?
+        var cell: EventCell?
         if event.isMeal {
             let mealCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
             mealCell.container = self.container
@@ -111,7 +111,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         guard let eventToMove = self.container.fetchEvents()?[sourceIndexPath.row] else { fatalError() }
         
-        //Present Alert with datePicker, callback to set event time
+        //TODO: Present Alert with datePicker, callback to set event time
         
     }
     

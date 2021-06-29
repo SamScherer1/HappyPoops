@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PoopCell: TrackCell {
+class PoopCell: EventCell {
     var ratingLabel = UILabel()
     var ratingBarBackground = UIView()
     var ratingBar = UIView()
