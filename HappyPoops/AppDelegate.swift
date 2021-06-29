@@ -83,17 +83,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
 
-    @objc func fetchEvents() -> [Event]? {
+    func fetchEvents() -> [Event]? {
         let eventSortDescriptor = NSSortDescriptor.init(key: "date", ascending: true)
         return self.fetchArray(of: "Event", with: eventSortDescriptor) as? [Event]
     }
     
-    @objc func fetchFoodTypes() -> [FoodType]? {
+    func fetchFoodTypes() -> [FoodType]? {
         let foodSortDescriptor = NSSortDescriptor.init(key: "index", ascending: true)
         return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as? [FoodType]
     }
     
-    @objc func saveContext() {
+    func saveContext() {
         let context = self.persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    @objc func deleteFoodType(at index:Int) {
+    func deleteFoodType(at index:Int) {
         if let foodTypeToDelete = self.fetchFoodTypes()?[index] {
             self.persistentContainer.viewContext.delete(foodTypeToDelete)
             self.saveContext()

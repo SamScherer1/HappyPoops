@@ -11,7 +11,7 @@ import CoreData
 
 class TrackViewController: UITableViewController, UITextFieldDelegate {
     
-    @objc var editButton : UIBarButtonItem! //TODO: pass in on creation?
+    var editButton : UIBarButtonItem! //TODO: pass in on creation?
     var singleTapGestureRecognizer: UIGestureRecognizer?
     
     override func loadView() {
@@ -93,11 +93,11 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         return cell!
     }
     
-    @objc @IBAction func editTasks() {
+    @IBAction func editTasks() {
         print("TODO")
     }
 
-    @objc func addMeal(with foodTypes:[String:Bool], date:Date) {
+    func addMeal(with foodTypes:[String:Bool], date:Date) {
         let mealEvent = createEvent(with: date)
         mealEvent.isMeal = true
         
@@ -111,7 +111,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         self.add(event: mealEvent)
     }
     
-    @objc func addPoop(with rating:Int, date:Date) {
+    func addPoop(with rating:Int, date:Date) {
         let poopEvent = createEvent(with: date)
         poopEvent.isMeal = false
         

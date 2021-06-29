@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc class AddFoodTypeVC : UIViewController {
+class AddFoodTypeVC : UIViewController {
     var nameTextView : UITextView
     var colorWell : UIColorWell
     var settingsVC : SettingsViewController?//TODO: Shouldn't hold strong reference... use a delegate?
@@ -92,14 +92,14 @@ import UIKit
         cancelButton.addTarget(self, action: #selector(cancelAddFoodType), for:.touchUpInside)
     }
     
-    @objc func addFoodType() {
+    @IBAction func addFoodType() {
         if let settingsVC = self.settingsVC {
             settingsVC.addFoodType(with: self.nameTextView.text, color: self.colorWell.selectedColor ?? UIColor.black)
         }
         dismiss(animated: false, completion: nil)
     }
     
-    @objc func cancelAddFoodType() {
+    @IBAction func cancelAddFoodType() {
         dismiss(animated: false, completion: nil)
     }
     
