@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PoopCell: TrackCell {
     var ratingLabel = UILabel()

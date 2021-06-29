@@ -19,7 +19,6 @@
 		3AC3EF6F2683EBF200CE1CEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AC3EF6D2683EBF200CE1CEB /* LaunchScreen.storyboard */; };
 		3AC3EF7A2683EBF200CE1CEB /* HappyPoopsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF792683EBF200CE1CEB /* HappyPoopsTests.swift */; };
 		3AC3EF852683EBF200CE1CEB /* HappyPoopsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF842683EBF200CE1CEB /* HappyPoopsUITests.swift */; };
-		3AC3EF9A2683EC7300CE1CEB /* SAMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */; };
 		3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EF972683EC7300CE1CEB /* Enums.swift */; };
 		3AC3EFAA2683EE7800CE1CEB /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFA82683EE7800CE1CEB /* Chart.swift */; };
 		3AC3EFAB2683EE7800CE1CEB /* XAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC3EFA92683EE7800CE1CEB /* XAxisFormatter.swift */; };
@@ -72,9 +71,6 @@
 		3AC3EF802683EBF200CE1CEB /* HappyPoopsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HappyPoopsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC3EF842683EBF200CE1CEB /* HappyPoopsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyPoopsUITests.swift; sourceTree = "<group>"; };
 		3AC3EF862683EBF200CE1CEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AC3EF922683EC7200CE1CEB /* HappyPoops-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HappyPoops-Bridging-Header.h"; sourceTree = "<group>"; };
-		3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMTabBarController.h; sourceTree = "<group>"; };
-		3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMTabBarController.m; sourceTree = "<group>"; };
 		3AC3EF972683EC7300CE1CEB /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		3AC3EFA82683EE7800CE1CEB /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		3AC3EFA92683EE7800CE1CEB /* XAxisFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XAxisFormatter.swift; sourceTree = "<group>"; };
@@ -159,14 +155,11 @@
 				3AC3EF682683EBF200CE1CEB /* HappyPoops.xcdatamodeld */,
 				3AC3EF6D2683EBF200CE1CEB /* LaunchScreen.storyboard */,
 				3AC3EF6B2683EBF200CE1CEB /* Assets.xcassets */,
-				3AC3EF922683EC7200CE1CEB /* HappyPoops-Bridging-Header.h */,
 				3AC3EFA62683EE5F00CE1CEB /* Tracking */,
 				3AC3EFA42683EE2A00CE1CEB /* Analysis */,
 				3AC3EFA52683EE5A00CE1CEB /* Settings */,
 				3AC3EF972683EC7300CE1CEB /* Enums.swift */,
 				3AC3EFC42683EEA900CE1CEB /* FoodTypeCircle.swift */,
-				3AC3EF932683EC7300CE1CEB /* SAMTabBarController.h */,
-				3AC3EF952683EC7300CE1CEB /* SAMTabBarController.m */,
 				3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */,
 				3AC5209E268AB41900B7EF0F /* TabBarController.swift */,
 			);
@@ -419,7 +412,6 @@
 				3AC3EFAF2683EE8200CE1CEB /* AnalyzeViewController.swift in Sources */,
 				3AC3EFCB2683EEA900CE1CEB /* FoodTypeCircle.swift in Sources */,
 				3AC3EFAB2683EE7800CE1CEB /* XAxisFormatter.swift in Sources */,
-				3AC3EF9A2683EC7300CE1CEB /* SAMTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,7 +590,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCS.HappyPoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HappyPoops/HappyPoops-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,7 +612,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = SCS.HappyPoops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "HappyPoops/HappyPoops-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

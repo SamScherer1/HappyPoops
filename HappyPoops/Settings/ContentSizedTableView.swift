@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class ContentSizedTableView: UITableView {
     override var contentSize:CGSize {

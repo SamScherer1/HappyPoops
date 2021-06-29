@@ -11,7 +11,7 @@ import CoreData
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var tabBarController: SAMTabBarController?
+    var tabBarController: TabBarController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.windowScene = windowScene
-        self.tabBarController = SAMTabBarController.init()
+        self.tabBarController = TabBarController()
         self.window?.rootViewController = self.tabBarController
         self.window?.makeKeyAndVisible()
     }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //Rename TrackCell -> EventCell
 class TrackCell: UITableViewCell {

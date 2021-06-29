@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class SettingsViewController: UIViewController, UITableViewDataSource {

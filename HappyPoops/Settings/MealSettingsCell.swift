@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MealSettingsCell: UITableViewCell {
     var foodType: FoodType?

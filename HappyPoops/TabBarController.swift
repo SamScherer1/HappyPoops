@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class TabBarController : UITabBarController {
@@ -130,7 +131,7 @@ class TabBarController : UITabBarController {
         //TODO: are navigation controllers unnecessary now? Looks like it's asking for UIViewControllers...
         // Set tab bar view controllers:
         //    self.viewControllers = @[self.trackNavigationVC, self.graphNavigationVC, self.settingsNavigationVC];
-        self.viewControllers = [self.trackVC, self.analyzeVC, self.settingsVC]
+        self.viewControllers = [self.trackNavigationVC!, self.graphNavigationVC!, self.settingsNavigationVC!]
     }
     
     @IBAction func showAddTaskVC() {

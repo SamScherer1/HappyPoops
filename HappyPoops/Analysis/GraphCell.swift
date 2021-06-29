@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 class GraphCell: UITableViewCell, UITableViewDataSource {
