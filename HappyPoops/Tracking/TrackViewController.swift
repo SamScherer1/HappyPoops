@@ -80,6 +80,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             }
             cell = poopCell
         }
+        cell?.overrideUserInterfaceStyle = .dark
         return cell!
     }
     
