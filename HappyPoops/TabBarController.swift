@@ -87,6 +87,7 @@ class TabBarController : UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         guard container != nil else {
             fatalError("This view needs a persistent container.")
         }
