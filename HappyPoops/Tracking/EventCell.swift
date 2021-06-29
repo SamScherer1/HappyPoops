@@ -33,5 +33,15 @@ class EventCell: UITableViewCell {
         self.insetBackgroundView.layer.cornerRadius = 15.0
         self.insetBackgroundView.backgroundColor = .halfTransparentDarkColor()
         self.backgroundColor = .clear
+        
+        self.timeLabel.textColor = .gray
+        self.timeLabel.isHidden = true
+        self.timeLabel.textAlignment = .center
+        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(self.timeLabel)
+        self.timeLabel.centerYAnchor.constraint(equalTo: super.contentView.centerYAnchor).isActive = true
+
+
+        
     }
 }

@@ -79,16 +79,7 @@ class PoopCell: EventCell {
         self.ratingLabel.centerXAnchor.constraint(equalTo: self.ratingBarBackground.centerXAnchor).isActive = true
         self.ratingLabel.centerYAnchor.constraint(equalTo: self.ratingBarBackground.centerYAnchor).isActive = true
         
-        //TODO: refactor some of this into EventCell
-        self.timeLabel.text = "-TIME-"//TODO: remove, testing
-        self.timeLabel.textColor = .gray
-        self.timeLabel.textAlignment = .center
-        self.timeLabel.isHidden = true
-        
-        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.timeLabel)
         self.timeLabel.rightAnchor.constraint(equalTo: super.insetBackgroundView.leftAnchor).isActive = true
         self.timeLabel.leftAnchor.constraint(equalTo: super.contentView.leftAnchor).isActive = true
-        self.timeLabel.centerYAnchor.constraint(equalTo: super.contentView.centerYAnchor).isActive = true
     }
 }

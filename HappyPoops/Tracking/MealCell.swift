@@ -16,11 +16,15 @@ class MealCell: EventCell {
     
     var mealDictionary : [String:Bool]?
     
+    var stackViewWidthConstraint : NSLayoutConstraint?
+    
+    fileprivate let circleSpacing = CGFloat(5.0)
+    
     override func setupView() {
         super.setupView()
         super.insetBackgroundView.leftAnchor.constraint(equalTo: super.contentView.leftAnchor, constant: 15.0).isActive = true
         self.circlesStackView.distribution = .equalSpacing
-        self.circlesStackView.spacing = 10.0
+        self.circlesStackView.spacing = circleSpacing
         self.circlesStackView.translatesAutoresizingMaskIntoConstraints = false
         super.insetBackgroundView.addSubview(self.circlesStackView)
         
@@ -31,20 +35,19 @@ class MealCell: EventCell {
         self.circlesStackView.rightAnchor.constraint(equalTo: super.insetBackgroundView.rightAnchor, constant: -15.0).isActive = true
         self.circlesStackView.bottomAnchor.constraint(equalTo: super.insetBackgroundView.bottomAnchor, constant: -5.0).isActive = true
         
-        self.timeLabel.text = "-TIME-"//TODO: remove, testing
-        self.timeLabel.textColor = .gray
-        self.timeLabel.isHidden = true
         
-        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.timeLabel)
         self.timeLabel.leftAnchor.constraint(equalTo: super.insetBackgroundView.rightAnchor).isActive = true
         self.timeLabel.rightAnchor.constraint(equalTo: super.contentView.rightAnchor).isActive = true
-        self.timeLabel.centerYAnchor.constraint(equalTo: super.contentView.centerYAnchor).isActive = true
     }
     
     func updateCircles(with mealDictionary:[String: Bool]) {
         self.mealDictionary = mealDictionary
         self.updateCircles()
+        self.stackViewWidthConstraint?.isActive = false
+        let circles = self.circlesStackView.arrangedSubviews
+        let stackViewWidth = (50 * circles.count) + ((circles.count - 1) * Int(circleSpacing))
+        self.stackViewWidthConstraint = self.circlesStackView.widthAnchor.constraint(equalToConstant: CGFloat(stackViewWidth))
+        self.stackViewWidthConstraint?.isActive = true
     }
     
     func updateCircles() {
