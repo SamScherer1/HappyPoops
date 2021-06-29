@@ -11,7 +11,7 @@ import CoreData
 
 class SettingsViewController: UIViewController, UITableViewDataSource {
     //TODO: create a UIViewController subclass that has this container property... -> ControllerWithContainer
-    var container : PersistentContainer?
+    var container : PersistentContainer!
     
     var foodTypesEditButton = UIButton.init(type: .system)
     var foodTypeTableView = ContentSizedTableView()
@@ -80,8 +80,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
     
     @IBAction func toggleFoodTypeEditing() {
         let isEditing = self.foodTypeTableView.isEditing
+        self.foodTypesEditButton.setTitle(isEditing ? "Edit" : "Done", for: .normal)
         self.foodTypeTableView.setEditing(!isEditing, animated: true)
-        self.foodTypesEditButton.setTitle(isEditing ? "Done" : "Edit", for: .normal)
     }
     
     @IBAction func presentAddFoodTypeVC() {
@@ -103,18 +103,23 @@ class SettingsViewController: UIViewController, UITableViewDataSource {
     //MARK: - TableViewDelegate Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return 0 }
-        return appDelegate.fetchFoodTypes()?.count ?? 0
+        return container.fetchFoodTypes()?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? MealSettingsCell else {
             fatalError()
         }
-        cell.update(with: (appDelegate.fetchFoodTypes()?[indexPath.row])!)//TODO: reconsider ! unwrap
+        cell.update(with: (container.fetchFoodTypes()?[indexPath.row])!)//TODO: reconsider ! unwrap
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.container.deleteFoodType(at: indexPath.row)
+            //TODO: delete explicitly for nice animation...
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }

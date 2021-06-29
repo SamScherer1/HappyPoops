@@ -34,7 +34,7 @@ class MealCell: TrackCell {
     
     func updateCircles(with mealDictionary:[String: Bool]) {
         self.mealDictionary = mealDictionary
-        self.updateCircles()//TODO: shouldn't need to get anything from coreData
+        self.updateCircles()
     }
     
     func updateCircles() {

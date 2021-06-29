@@ -114,6 +114,9 @@ class PersistentContainer: NSPersistentContainer {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
     }
     
-    //TODO: needs delete event?!
-    //Remember to send "EventsUpdated" notification
+    func delete(event: Event) {
+        self.viewContext.delete(event)
+        self.saveContext()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "EventsUpdated"), object: nil)
+    }
 }

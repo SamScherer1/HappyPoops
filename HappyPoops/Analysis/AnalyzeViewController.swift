@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 
 class AnalyzeViewController: UITableViewController {
-    var appDelegate : AppDelegate?//TODO: remove, use PersistentContainer
     var container : PersistentContainer!
 
     var managedObjectContext : NSManagedObjectContext?
@@ -19,9 +18,6 @@ class AnalyzeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.appDelegate = UIApplication.shared.delegate as? AppDelegate
-        self.managedObjectContext = appDelegate?.persistentContainer.viewContext
         
         self.view.backgroundColor = .black
 
@@ -36,7 +32,7 @@ class AnalyzeViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GraphCell", for: indexPath) as! GraphCell
-        cell.appDelegate = self.appDelegate
+        cell.container = self.container
         cell.reloadChartPoints()
         return cell
     }

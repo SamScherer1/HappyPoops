@@ -13,7 +13,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     var container : PersistentContainer!
     var editButton : UIBarButtonItem! //TODO: pass in on creation?
-    var singleTapGestureRecognizer: UIGestureRecognizer?
+    //var singleTapGestureRecognizer: UIGestureRecognizer?//TODO: reimplement
     
     override func loadView() {
         super.loadView()
@@ -32,9 +32,9 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         
         self.tableView.backgroundColor = .black
         
-        // Add Tap Gesture Recognizer for showing time of completion
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTaps))
-        self.tableView.addGestureRecognizer(tapRecognizer)
+        //TODO: Add Tap Gesture Recognizer for showing time of completion
+//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTaps))
+//        self.tableView.addGestureRecognizer(tapRecognizer)
         self.tableView.setEditing(false, animated: false)//TODO: necessary? test returning to it after leaving it in editing mode...
         self.tableView.separatorStyle = .none
         
@@ -94,8 +94,84 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         return cell!
     }
     
-    @IBAction func editTasks() {
-        print("TODO")
-        self.tableView.setEditing(true, animated: true)
+    @IBAction func toggleEditTasks() {
+        let isEditing = self.tableView.isEditing
+        self.editButton.title = isEditing ? " Edit " : " Done "
+        self.tableView.setEditing(!isEditing, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if self.tableView.isEditing {
+            return .delete
+        }
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let eventToDelete = self.container.fetchEvents()?[indexPath.row] else { return }
+            self.container.delete(event: eventToDelete)
+            //TODO: delete explicitly for nice animation...
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    //- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    
+        //TODO: implement reordering (add an alert to change the time when reordering too)
+    //    NSMutableArray *eventArray = [NSMutableArray arrayWithArray:[self.appDelegate fetchEvents]];
+    //    Event *fromEvent = eventArray[fromIndexPath.row];
+    //    [eventArray removeObjectAtIndex:fromIndexPath.row];
+    //    [eventArray insertObject:fromEvent atIndex:toIndexPath.row];
+    //    [self.appDelegate saveContext];
+    //}
+    
+    //- (void)mockValueDataForTask:(Event *)event {
+    //    NSMutableDictionary *mockValueDictionary = [self mockedValueDictionary];
+    //    NSMutableArray *mockValueArray = [mockValueDictionary objectForKey:@"userInputNumbers"];
+    //    NSData *mockUserInput = [NSKeyedArchiver archivedDataWithRootObject:mockValueArray requiringSecureCoding:YES error:nil];
+    //    NSData *mockTimeData = [NSKeyedArchiver archivedDataWithRootObject:[mockValueDictionary objectForKey:@"completionTimes"] requiringSecureCoding:YES error:nil];
+    //    [self.editingNumberTask setValue:mockTimeData forKey:@"completionTimes"];
+    //    [self.editingNumberTask setValue:mockUserInput forKey:@"userInputNumbers"];
+    //}
+
+//    - (NSMutableDictionary *)mockedValueDictionary {
+//        //Mock test data:
+//        NSMutableArray *taskCompletionTimes = [NSMutableArray new];
+//        NSMutableArray *userInputTimes = [NSMutableArray new];
+//        //NSTimeInterval threeDays = -240800;
+//        NSTimeInterval dayAndABit = -89400;
+//        //NSTimeInterval day = -86400;
+//
+//        for (int i = 40; i >= 0; i--) {
+//            NSDate *date = [[NSDate date] dateByAddingTimeInterval:dayAndABit * i];
+//            [taskCompletionTimes addObject:date];
+//            [userInputTimes addObject:[NSNumber numberWithInt:i]];
+//        }
+//        NSMutableDictionary *mockedValueData = [NSMutableDictionary new];
+//        [mockedValueData setValue:taskCompletionTimes forKey:@"completionTimes"];
+//        [mockedValueData setValue:userInputTimes forKey:@"userInputNumbers"];
+//        return mockedValueData;
+//    }
+
+
+//    - (NSMutableArray *)mockedTimeArray {
+//        //Mock test data:
+//        NSMutableArray *taskCompletionTimes = [NSMutableArray new];
+//        //NSTimeInterval threeDays = -240800;
+//        NSTimeInterval dayAndABit = -89400;
+//        //NSTimeInterval day = -86400;
+//
+//        for (int i = 30; i >= 0; i--) {
+//            NSDate *date = [[NSDate date] dateByAddingTimeInterval:dayAndABit * i];
+//            [taskCompletionTimes addObject:date];
+//        }
+//        return taskCompletionTimes;
+
+    //    [taskCompletionTimes addObject:date0];
+    //    [taskCompletionTimes addObject:date1];
+        //[taskCompletionTimes addObject:[NSDate date]];
+    //}
 }

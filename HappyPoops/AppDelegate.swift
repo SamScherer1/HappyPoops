@@ -86,26 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return container
     }()
-
-
-    func fetchEvents() -> [Event]? {
-        let eventSortDescriptor = NSSortDescriptor.init(key: "date", ascending: true)
-        return self.fetchArray(of: "Event", with: eventSortDescriptor) as? [Event]
-    }
     
-    func fetchFoodTypes() -> [FoodType]? {
-        let foodSortDescriptor = NSSortDescriptor.init(key: "index", ascending: true)
-        return self.fetchArray(of: "FoodType", with: foodSortDescriptor) as? [FoodType]
-    }
-    
-    func deleteFoodType(at index:Int) {
-        if let foodTypeToDelete = self.fetchFoodTypes()?[index] {
-            self.persistentContainer.viewContext.delete(foodTypeToDelete)
-            self.persistentContainer.saveContext()
-            
-        }
-    }
-
     func applicationWillTerminate(_ application: UIApplication) {
         self.persistentContainer.saveContext()
     }

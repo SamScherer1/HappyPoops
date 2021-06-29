@@ -40,7 +40,7 @@ class TabBarController : UITabBarController {
         let editButton = UIBarButtonItem(title: " Edit ",
                                          style: .plain,
                                          target: self.trackVC,
-                                         action: #selector(trackVC.editTasks))
+                                         action: #selector(trackVC.toggleEditTasks))
         self.trackVC.editButton = editButton
         self.trackVC.navigationItem.leftBarButtonItem = editButton
         

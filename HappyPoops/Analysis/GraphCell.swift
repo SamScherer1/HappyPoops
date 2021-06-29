@@ -11,8 +11,8 @@ import UIKit
 import CoreData
 
 class GraphCell: UITableViewCell, UITableViewDataSource {
-    var appDelegate : AppDelegate?
     
+    var container: PersistentContainer!
     var chart = Chart()
     var titleLabel = UILabel()
     var xResolutionSC = UISegmentedControl()
@@ -83,7 +83,7 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
     @IBAction func reloadChartPoints() {
         var dateArray = [Date]()
         var valueArray = [NSValue]()
-        if let eventArray = self.appDelegate?.fetchEvents() {
+        if let eventArray = self.container.fetchEvents() {
             for event in eventArray {
                 if !event.isMeal {
                     do {
@@ -100,13 +100,13 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.appDelegate?.fetchFoodTypes()?.count ?? 1
+        return self.container.fetchFoodTypes()?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InsightCell", for: indexPath) as! InsightTableViewCell
         cell.backgroundColor = UIColor.clear
-        if let foodTypes = self.appDelegate?.fetchFoodTypes() {
+        if let foodTypes = self.container.fetchFoodTypes() {
             if let name = foodTypes[indexPath.row].name {
                 cell.titleLabel.text = name
             }
