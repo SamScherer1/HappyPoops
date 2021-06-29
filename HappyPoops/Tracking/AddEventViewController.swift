@@ -75,11 +75,9 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIPickerVie
                                                in: scrollView)
         self.eventPropertiesLabel.font = UIFont.systemFont(ofSize: 22.0)
         self.eventPropertiesLabel.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 15.0).isActive = true
-//
-//
+
         //Meal UI Elements
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { fatalError() }
-        self.foodTypeArray = appDelegate.fetchFoodTypes()! //TODO: reconsider ! unwrap
+        self.foodTypeArray = container.fetchFoodTypes()! //TODO: reconsider ! unwrap
         
         var belowAnchor = self.eventPropertiesLabel.bottomAnchor
         for foodType in self.foodTypeArray {

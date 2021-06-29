@@ -67,13 +67,12 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     }
     
     //TODO: a lot of this method is pretty hacky... lots of force unwrapping, casting, use of NSDictionary...
-    // Definitely create a coredata stack and revisit all usages of coredata...
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let event = self.container.fetchEvents()?[indexPath.row] else { fatalError() }
         var nullableQualitiesDictionary : NSDictionary?
         do {
             nullableQualitiesDictionary = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSDictionary.self,
-                                                                              from: event.qualitiesDictionary!)
+                                                                                 from: event.qualitiesDictionary!)
         } catch {
             fatalError()
         }
@@ -82,6 +81,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
         var cell: TrackCell?
         if event.isMeal {
             let mealCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
+            mealCell.container = self.container
             mealCell.updateCircles(with: qualitiesDictionary as! [String: Bool])//TODO: reconsider force unwrap
             cell = mealCell
         } else {

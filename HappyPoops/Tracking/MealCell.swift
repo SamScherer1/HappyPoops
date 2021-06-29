@@ -10,6 +10,8 @@ import UIKit
 
 class MealCell: TrackCell {
     
+    var container: PersistentContainer?
+    
     var circlesStackView = UIStackView.init(arrangedSubviews: [])
     
     var mealDictionary : [String:Bool]?
@@ -32,7 +34,7 @@ class MealCell: TrackCell {
     
     func updateCircles(with mealDictionary:[String: Bool]) {
         self.mealDictionary = mealDictionary
-        self.updateCircles()
+        self.updateCircles()//TODO: shouldn't need to get anything from coreData
     }
     
     func updateCircles() {
@@ -41,28 +43,28 @@ class MealCell: TrackCell {
             self.circlesStackView.removeArrangedSubview(view)
         }
         
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        guard let foodTypes = appDelegate.fetchFoodTypes() else { return }
-        for foodType in foodTypes {
-            let circleLetter = String((foodType.name?.prefix(1))!)//TODO: reconsider force unwrap
-            var circleColor = UIColor.gray
-            if let mealDictionary = self.mealDictionary {
-                if let hasEatenFood = mealDictionary[foodType.name!], hasEatenFood {//TODO: reconsider force unwrap
-                    if let foodTypeColor = foodType.color {
-                        do {
-                            if let unwrappedColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: foodTypeColor) {
-                                circleColor = unwrappedColor
+        if let foodTypes = self.container?.fetchFoodTypes() {
+            for foodType in foodTypes {
+                let circleLetter = String((foodType.name?.prefix(1))!)//TODO: reconsider force unwrap
+                var circleColor = UIColor.gray
+                if let mealDictionary = self.mealDictionary {
+                    if let hasEatenFood = mealDictionary[foodType.name!], hasEatenFood {//TODO: reconsider force unwrap
+                        if let foodTypeColor = foodType.color {
+                            do {
+                                if let unwrappedColor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: foodTypeColor) {
+                                    circleColor = unwrappedColor
+                                }
+                            } catch {
+                                fatalError()
                             }
-                        } catch {
-                            fatalError()
                         }
                     }
                 }
-            }
 
-            let circle = FoodTypeCircle(initialCharacter: circleLetter, color: circleColor)
-            circle.backgroundColor = circleColor
-            self.circlesStackView.addArrangedSubview(circle)
+                let circle = FoodTypeCircle(initialCharacter: circleLetter, color: circleColor)
+                circle.backgroundColor = circleColor
+                self.circlesStackView.addArrangedSubview(circle)
+            }
         }
     }
 }
