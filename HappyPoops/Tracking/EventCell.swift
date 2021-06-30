@@ -10,8 +10,10 @@ import UIKit
 
 class EventCell: UITableViewCell {
     
+    var dateLabel = UILabel()
     var timeLabel = UILabel()
     var insetBackgroundView = UIView()
+    var dateLabelHeightConstraint : NSLayoutConstraint?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -24,11 +26,22 @@ class EventCell: UITableViewCell {
     }
     
     func setupView() {
+        self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.dateLabel)
+        self.dateLabel.font = UIFont.systemFont(ofSize: 12.0)
+        self.dateLabel.textColor = .gray
+        self.dateLabelHeightConstraint = self.dateLabel.heightAnchor.constraint(equalToConstant: 5.0)
+        self.dateLabelHeightConstraint?.isActive = true
+        
+        self.dateLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+        self.dateLabel.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor).isActive = true
+        
         self.insetBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.insetBackgroundView)
 
-        self.insetBackgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
-        self.insetBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true
+        self.insetBackgroundView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 2.0).isActive = true
+        self.insetBackgroundView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5.0).isActive = true
+        self.insetBackgroundView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         self.insetBackgroundView.layer.cornerRadius = 15.0
         self.insetBackgroundView.backgroundColor = .halfTransparentDarkColor()
@@ -39,9 +52,10 @@ class EventCell: UITableViewCell {
         self.timeLabel.textAlignment = .center
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.timeLabel)
-        self.timeLabel.centerYAnchor.constraint(equalTo: super.contentView.centerYAnchor).isActive = true
-
-
-        
+        self.timeLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+    }
+    
+    override func updateConstraints() {
+        <#code#>
     }
 }

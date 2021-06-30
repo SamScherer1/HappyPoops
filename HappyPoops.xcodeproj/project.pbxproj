@@ -213,10 +213,10 @@
 			isa = PBXGroup;
 			children = (
 				3AB0810D26851F92008D030C /* TrackViewController.swift */,
-				3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */,
+				3AB0810B2685156E008D030C /* EventCell.swift */,
 				3AB0810926851472008D030C /* MealCell.swift */,
 				3AECA9F126852B4A00E399A5 /* PoopCell.swift */,
-				3AB0810B2685156E008D030C /* EventCell.swift */,
+				3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";

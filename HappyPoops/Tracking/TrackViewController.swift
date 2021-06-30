@@ -27,7 +27,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 60
+        //self.tableView.rowHeight = 60
         
         self.tableView.backgroundColor = .black
         
@@ -80,16 +80,23 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             }
             cell = poopCell
         }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .none
-        
+
         if let date = event.date {
-            cell?.timeLabel.text = dateFormatter.string(from: date)
+            let timeFormatter = DateFormatter()
+            timeFormatter.timeStyle = .short
+            timeFormatter.dateStyle = .none
+            
+            cell?.timeLabel.text = timeFormatter.string(from: date)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
+            
+            cell?.dateLabel.text = dateFormatter.string(from: date)
         }
         cell?.overrideUserInterfaceStyle = .dark
         cell?.selectionStyle = .none
+
         return cell!
     }
     
