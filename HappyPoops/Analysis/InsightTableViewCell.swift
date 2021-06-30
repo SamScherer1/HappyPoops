@@ -14,6 +14,8 @@ class InsightTableViewCell: UITableViewCell {
     var arrowView : UIImageView!
     var titleLabel : UILabel!
     
+    //var isActuallySelected
+    
     var arrowInitialized = false
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -52,12 +54,12 @@ class InsightTableViewCell: UITableViewCell {
             return
         }
         
-        super.setSelected(selected, animated: animated)
-        if selected {
+        if selected && !self.isSelected {
             showDetails()
-        } else {
+        } else if !selected && self.isSelected {
             hideDetails()
         }
+        super.setSelected(selected, animated: animated)
     }
     
     func showDetails() {
