@@ -25,7 +25,7 @@ class EventCell: UITableViewCell {
     
     func setupView() {
         self.insetBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.insetBackgroundView)
+        self.addSubview(self.insetBackgroundView)
 
         self.insetBackgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
         self.insetBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true

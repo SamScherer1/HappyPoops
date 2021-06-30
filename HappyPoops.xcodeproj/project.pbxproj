@@ -32,8 +32,6 @@
 		3AC5209B268A95F900B7EF0F /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */; };
 		3AC5209D268AB1C900B7EF0F /* UIColor+EffectiveColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */; };
 		3AC5209F268AB41900B7EF0F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5209E268AB41900B7EF0F /* TabBarController.swift */; };
-		3AD5F82C268BE2510031AA9D /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5F82B268BE2510031AA9D /* DateCell.swift */; };
-		3AD5F82E268BE3F00031AA9D /* TrackVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5F82D268BE3F00031AA9D /* TrackVCCell.swift */; };
 		3AECA9F226852B4A00E399A5 /* PoopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AECA9F126852B4A00E399A5 /* PoopCell.swift */; };
 		8614F3491B375EBDB67E9657 /* libPods-HappyPoops.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */; };
 /* End PBXBuildFile section */
@@ -87,8 +85,6 @@
 		3AC5209A268A95F900B7EF0F /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		3AC5209C268AB1C900B7EF0F /* UIColor+EffectiveColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EffectiveColors.swift"; sourceTree = "<group>"; };
 		3AC5209E268AB41900B7EF0F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		3AD5F82B268BE2510031AA9D /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		3AD5F82D268BE3F00031AA9D /* TrackVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackVCCell.swift; sourceTree = "<group>"; };
 		3AECA9F126852B4A00E399A5 /* PoopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoopCell.swift; sourceTree = "<group>"; };
 		58E866DDD6FA0141172E1B6C /* Pods-HappyPoops.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyPoops.debug.xcconfig"; path = "Target Support Files/Pods-HappyPoops/Pods-HappyPoops.debug.xcconfig"; sourceTree = "<group>"; };
 		650E5308BAC0EEAFA16435D6 /* libPods-HappyPoops.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HappyPoops.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,8 +217,6 @@
 				3AB0810926851472008D030C /* MealCell.swift */,
 				3AECA9F126852B4A00E399A5 /* PoopCell.swift */,
 				3AB0810B2685156E008D030C /* EventCell.swift */,
-				3AD5F82B268BE2510031AA9D /* DateCell.swift */,
-				3AD5F82D268BE3F00031AA9D /* TrackVCCell.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -408,7 +402,6 @@
 				3AC5209B268A95F900B7EF0F /* AddEventViewController.swift in Sources */,
 				3AC3EF6A2683EBF200CE1CEB /* HappyPoops.xcdatamodeld in Sources */,
 				3AB0810C2685156E008D030C /* EventCell.swift in Sources */,
-				3AD5F82C268BE2510031AA9D /* DateCell.swift in Sources */,
 				3AB081062684DF6D008D030C /* MealSettingsCell.swift in Sources */,
 				3AC3EF622683EBF200CE1CEB /* SceneDelegate.swift in Sources */,
 				3AC3EFB82683EE9C00CE1CEB /* ContentSizedTableView.swift in Sources */,
@@ -418,7 +411,6 @@
 				3A715B90268B78CD004E16ED /* PersistentContainer.swift in Sources */,
 				3AC3EF9C2683EC7300CE1CEB /* Enums.swift in Sources */,
 				3AB081082684EE95008D030C /* SettingsViewController.swift in Sources */,
-				3AD5F82E268BE3F00031AA9D /* TrackVCCell.swift in Sources */,
 				3AB0810E26851F92008D030C /* TrackViewController.swift in Sources */,
 				3AC5209D268AB1C900B7EF0F /* UIColor+EffectiveColors.swift in Sources */,
 				3AC3EFAF2683EE8200CE1CEB /* AnalyzeViewController.swift in Sources */,
