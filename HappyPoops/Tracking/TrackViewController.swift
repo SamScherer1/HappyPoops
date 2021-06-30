@@ -93,7 +93,10 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             dateFormatter.dateStyle = .short
 
             cell?.dateLabel.text = dateFormatter.string(from: date)
-            if indexPath.row > 0 {
+            if indexPath.row == 0 {
+                cell?.dateLabelHeightConstraint?.constant = 20.0
+                cell?.cellHeightConstraint?.constant = 80.0
+            } else {
                 if let lastEvent = self.container.fetchEvents()?[indexPath.row - 1], let lastEventDate = lastEvent.date {
                     let cal = Calendar.current
                     if cal.isDate(lastEventDate, inSameDayAs: date) {
