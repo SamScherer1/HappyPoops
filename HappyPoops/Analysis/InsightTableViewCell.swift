@@ -14,6 +14,8 @@ class InsightTableViewCell: UITableViewCell {
     var arrowView : UIImageView!
     var titleLabel : UILabel!
     
+    var arrowInitialized = false
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setupView()
@@ -41,13 +43,27 @@ class InsightTableViewCell: UITableViewCell {
         self.titleLabel.bottomAnchor.constraint(equalTo: self.arrowView.bottomAnchor).isActive = true
         self.titleLabel.text = "Food Type Title"
         self.titleLabel.textColor = .white
+        self.selectionStyle = .none
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        if !arrowInitialized {
+            arrowInitialized = true
+            return
+        }
+        
+        super.setSelected(selected, animated: animated)
+        if selected {
+            showDetails()
+        } else {
+            hideDetails()
+        }
     }
     
     func showDetails() {
         //Rotate arrow
         UIView.animate(withDuration: 0.5, animations: {
             self.arrowView.transform = self.arrowView.transform.rotated(by: .pi/2.0)
-            self.layoutIfNeeded()
         })
 
         //Increase cell size
@@ -57,7 +73,10 @@ class InsightTableViewCell: UITableViewCell {
     
     func hideDetails() {
         //Rotate arrow
-        
+        UIView.animate(withDuration: 0.5) {
+            self.arrowView.transform = self.arrowView.transform.rotated(by: -1 * .pi/2.0)
+        }
+
         //Decrease cell size
         
         //Hide content
