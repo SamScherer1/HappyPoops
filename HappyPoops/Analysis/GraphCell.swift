@@ -40,13 +40,22 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.titleLabel.text = "Poop Quality"
         self.titleLabel.topAnchor.constraint(equalTo: backgroundRectangle.topAnchor, constant: 15).isActive = true
         self.titleLabel.centerXAnchor.constraint(equalTo: backgroundRectangle.centerXAnchor).isActive = true
+        self.titleLabel.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        
+        let chartWrapper = UIView()
+        chartWrapper.translatesAutoresizingMaskIntoConstraints = false
+        backgroundRectangle.addSubview(chartWrapper)
+        chartWrapper.leftAnchor.constraint(equalTo: backgroundRectangle.leftAnchor, constant: 15.0).isActive = true
+        chartWrapper.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10.0).isActive = true
+        chartWrapper.rightAnchor.constraint(equalTo: backgroundRectangle.rightAnchor, constant: -15.0).isActive = true
+        chartWrapper.widthAnchor.constraint(equalTo: chartWrapper.heightAnchor).isActive = true
         
         self.chart.translatesAutoresizingMaskIntoConstraints = false
-        backgroundRectangle.addSubview(self.chart)
-        self.chart.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor).isActive = true
-        self.chart.leftAnchor.constraint(equalTo: backgroundRectangle.leftAnchor, constant:15).isActive = true
-        self.chart.rightAnchor.constraint(equalTo: backgroundRectangle.rightAnchor, constant: -15).isActive = true
-        self.chart.heightAnchor.constraint(equalTo: self.chart.widthAnchor).isActive = true
+        chartWrapper.addSubview(self.chart)
+        self.chart.topAnchor.constraint(equalTo: chartWrapper.topAnchor).isActive = true
+        self.chart.leftAnchor.constraint(equalTo: chartWrapper.leftAnchor).isActive = true
+        self.chart.rightAnchor.constraint(equalTo: chartWrapper.rightAnchor).isActive = true
+        self.chart.bottomAnchor.constraint(equalTo: chartWrapper.bottomAnchor).isActive = true
         
         self.xResolutionSC = UISegmentedControl.init(items: ["All", "Day", "Week", "Month"])
         self.xResolutionSC.translatesAutoresizingMaskIntoConstraints = false
@@ -55,9 +64,9 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.xResolutionSC.setTitleTextAttributes(attributes, for: UIControl.State.normal)
         let highlightedAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         self.xResolutionSC.setTitleTextAttributes(highlightedAttributes, for: UIControl.State.normal)
-        self.xResolutionSC.topAnchor.constraint(equalTo: self.chart.bottomAnchor, constant: 15).isActive = true
-        self.xResolutionSC.leftAnchor.constraint(equalTo: self.chart.leftAnchor).isActive = true
-        self.xResolutionSC.rightAnchor.constraint(equalTo: self.chart.rightAnchor).isActive = true
+        self.xResolutionSC.topAnchor.constraint(equalTo: chartWrapper.bottomAnchor, constant: 15).isActive = true
+        self.xResolutionSC.leftAnchor.constraint(equalTo: chartWrapper.leftAnchor).isActive = true
+        self.xResolutionSC.rightAnchor.constraint(equalTo: chartWrapper.rightAnchor).isActive = true
         self.xResolutionSC.selectedSegmentIndex = 0
         
         self.xResolutionSC.addTarget(self, action: #selector(handleResolutionChange), for: .valueChanged)
@@ -70,9 +79,9 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.analysisTableView.register(InsightTableViewCell.self, forCellReuseIdentifier: "InsightCell")
         
         self.analysisTableView.topAnchor.constraint(equalTo: self.xResolutionSC.bottomAnchor, constant: 15).isActive = true
-        self.analysisTableView.leftAnchor.constraint(equalTo: self.chart.leftAnchor).isActive = true
-        self.analysisTableView.rightAnchor.constraint(equalTo: self.chart.rightAnchor).isActive = true
-        self.analysisTableView.bottomAnchor.constraint(equalTo: backgroundRectangle.bottomAnchor).isActive = true
+        self.analysisTableView.leftAnchor.constraint(equalTo: chartWrapper.leftAnchor).isActive = true
+        self.analysisTableView.rightAnchor.constraint(equalTo: chartWrapper.rightAnchor).isActive = true
+        self.analysisTableView.bottomAnchor.constraint(equalTo: backgroundRectangle.bottomAnchor, constant: -15.0).isActive = true
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reloadChartPoints),
