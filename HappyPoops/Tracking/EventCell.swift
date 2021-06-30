@@ -14,6 +14,7 @@ class EventCell: UITableViewCell {
     var timeLabel = UILabel()
     var insetBackgroundView = UIView()
     var dateLabelHeightConstraint : NSLayoutConstraint?
+    var cellHeightConstraint : NSLayoutConstraint?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -26,6 +27,9 @@ class EventCell: UITableViewCell {
     }
     
     func setupView() {
+        self.cellHeightConstraint = self.contentView.heightAnchor.constraint(equalToConstant: 60.0)
+        self.cellHeightConstraint?.isActive = true
+        
         self.contentView.autoresizingMask = .flexibleHeight
 
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -41,9 +45,8 @@ class EventCell: UITableViewCell {
         self.insetBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.insetBackgroundView)
 
-        self.insetBackgroundView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 2.0).isActive = true
+        self.insetBackgroundView.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor, constant: 4.0).isActive = true
         self.insetBackgroundView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5.0).isActive = true
-        self.insetBackgroundView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         
         self.insetBackgroundView.layer.cornerRadius = 15.0
         self.insetBackgroundView.backgroundColor = .halfTransparentDarkColor()
@@ -52,8 +55,9 @@ class EventCell: UITableViewCell {
         self.timeLabel.textColor = .gray
         self.timeLabel.isHidden = true
         self.timeLabel.textAlignment = .center
+        self.timeLabel.font = UIFont.systemFont(ofSize: 12.0)
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.timeLabel)
-        self.timeLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
+        self.timeLabel.centerYAnchor.constraint(equalTo: self.insetBackgroundView.centerYAnchor).isActive = true
     }
 }

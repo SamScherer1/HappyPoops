@@ -27,7 +27,7 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 70.0
+        tableView.estimatedRowHeight = 80.0
         tableView.rowHeight = UITableView.automaticDimension
         
         self.tableView.backgroundColor = .black
@@ -67,7 +67,6 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             fatalError()
         }
         guard let qualitiesDictionary = nullableQualitiesDictionary else { fatalError() }
-        
         var cell: EventCell?
         if event.isMeal {
             let mealCell = tableView.dequeueReusableCell(withIdentifier: "MealCell", for: indexPath) as! MealCell
@@ -86,14 +85,26 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
             let timeFormatter = DateFormatter()
             timeFormatter.timeStyle = .short
             timeFormatter.dateStyle = .none
-            
+
             cell?.timeLabel.text = timeFormatter.string(from: date)
-            
+
             let dateFormatter = DateFormatter()
             dateFormatter.timeStyle = .none
             dateFormatter.dateStyle = .short
-            
+
             cell?.dateLabel.text = dateFormatter.string(from: date)
+            if indexPath.row > 0 {
+                if let lastEvent = self.container.fetchEvents()?[indexPath.row - 1], let lastEventDate = lastEvent.date {
+                    let cal = Calendar.current
+                    if cal.isDate(lastEventDate, inSameDayAs: date) {
+                        cell?.dateLabelHeightConstraint?.constant = 0.0
+                        cell?.cellHeightConstraint?.constant = 60.0
+                    } else {
+                        cell?.dateLabelHeightConstraint?.constant = 20.0
+                        cell?.cellHeightConstraint?.constant = 80.0
+                    }
+                }
+            }
         }
         cell?.overrideUserInterfaceStyle = .dark
         cell?.selectionStyle = .none
