@@ -25,10 +25,10 @@ class InsightTableViewCell: UITableViewCell {
     }
     
     func setupView() {
-        self.arrowView = UIImageView.init(image: UIImage.init(systemName: "chevron.right"))
+        self.arrowView = UIImageView.init(image: UIImage.init(systemName: "chevron.right.circle"))
         self.arrowView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.arrowView)
-        self.arrowView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 5.0).isActive = true
+        self.arrowView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -5.0).isActive = true
         self.arrowView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 5.0).isActive = true
         self.arrowView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -5.0).isActive = true
         self.arrowView.widthAnchor.constraint(equalTo: self.arrowView.heightAnchor).isActive = true
@@ -36,12 +36,30 @@ class InsightTableViewCell: UITableViewCell {
         self.titleLabel = UILabel.init()
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.titleLabel)
-        self.titleLabel.leftAnchor.constraint(equalTo: self.arrowView.rightAnchor, constant: 15.0).isActive = true
+        self.titleLabel.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 15.0).isActive = true
         self.titleLabel.topAnchor.constraint(equalTo: self.arrowView.topAnchor).isActive = true
         self.titleLabel.bottomAnchor.constraint(equalTo: self.arrowView.bottomAnchor).isActive = true
-        self.titleLabel.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -5.0).isActive = true
         self.titleLabel.text = "Food Type Title"
         self.titleLabel.textColor = .white
     }
     
+    func showDetails() {
+        //Rotate arrow
+        UIView.animate(withDuration: 0.5, animations: {
+            self.arrowView.transform = self.arrowView.transform.rotated(by: .pi/2.0)
+            self.layoutIfNeeded()
+        })
+
+        //Increase cell size
+        
+        //Show content
+    }
+    
+    func hideDetails() {
+        //Rotate arrow
+        
+        //Decrease cell size
+        
+        //Hide content
+    }
 }
