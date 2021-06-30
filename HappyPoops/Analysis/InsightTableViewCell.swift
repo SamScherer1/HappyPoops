@@ -14,7 +14,7 @@ class InsightTableViewCell: UITableViewCell {
     var arrowView : UIImageView!
     var titleLabel : UILabel!
     
-    //var isActuallySelected
+    var cellHeightConstraint : NSLayoutConstraint?
     
     var arrowInitialized = false
     
@@ -29,6 +29,9 @@ class InsightTableViewCell: UITableViewCell {
     }
     
     func setupView() {
+        self.cellHeightConstraint = self.contentView.heightAnchor.constraint(equalToConstant: 60.0)
+        self.cellHeightConstraint?.isActive = false
+        
         self.arrowView = UIImageView.init(image: UIImage.init(systemName: "chevron.right.circle"))
         self.arrowView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.arrowView)
@@ -69,6 +72,7 @@ class InsightTableViewCell: UITableViewCell {
         })
 
         //Increase cell size
+        
         
         //Show content
     }

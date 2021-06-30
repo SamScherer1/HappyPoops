@@ -55,7 +55,7 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
         self.xResolutionSC.setTitleTextAttributes(attributes, for: UIControl.State.normal)
         let highlightedAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         self.xResolutionSC.setTitleTextAttributes(highlightedAttributes, for: UIControl.State.normal)
-        self.xResolutionSC.topAnchor.constraint(equalTo: self.chart.bottomAnchor, constant: 50).isActive = true
+        self.xResolutionSC.topAnchor.constraint(equalTo: self.chart.bottomAnchor, constant: 15).isActive = true
         self.xResolutionSC.leftAnchor.constraint(equalTo: self.chart.leftAnchor).isActive = true
         self.xResolutionSC.rightAnchor.constraint(equalTo: self.chart.rightAnchor).isActive = true
         self.xResolutionSC.selectedSegmentIndex = 0
@@ -78,6 +78,10 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
                                                selector: #selector(reloadChartPoints),
                                                name: NSNotification.Name(rawValue: "EventsUpdated"),
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(reloadInsightTableView),
+                                               name: NSNotification.Name(rawValue: "FoodTypesUpdated"),
+                                               object: nil)
     }
     
     @IBAction func reloadChartPoints() {
@@ -97,6 +101,10 @@ class GraphCell: UITableViewCell, UITableViewDataSource {
             }
         }
         self.chart.set(dates: dateArray, values: valueArray)
+    }
+    
+    @IBAction func reloadInsightTableView() {
+        self.analysisTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
