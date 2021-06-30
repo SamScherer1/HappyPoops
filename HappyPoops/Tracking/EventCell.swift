@@ -26,11 +26,13 @@ class EventCell: UITableViewCell {
     }
     
     func setupView() {
+        self.contentView.autoresizingMask = .flexibleHeight
+
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.dateLabel)
         self.dateLabel.font = UIFont.systemFont(ofSize: 12.0)
         self.dateLabel.textColor = .gray
-        self.dateLabelHeightConstraint = self.dateLabel.heightAnchor.constraint(equalToConstant: 5.0)
+        self.dateLabelHeightConstraint = self.dateLabel.heightAnchor.constraint(equalToConstant: 0.0)
         self.dateLabelHeightConstraint?.isActive = true
         
         self.dateLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
@@ -53,9 +55,5 @@ class EventCell: UITableViewCell {
         self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.timeLabel)
         self.timeLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor).isActive = true
-    }
-    
-    override func updateConstraints() {
-        <#code#>
     }
 }

@@ -27,7 +27,8 @@ class TrackViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.rowHeight = 60
+        tableView.estimatedRowHeight = 70.0
+        tableView.rowHeight = UITableView.automaticDimension
         
         self.tableView.backgroundColor = .black
         
